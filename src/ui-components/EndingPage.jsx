@@ -206,6 +206,7 @@ export default function EndingPage(props) {
               position="relative"
               padding="0px 0px 0px 0px"
               objectFit="unset"
+              src="https://cdn-icons-png.flaticon.com/512/25/25297.png"
               {...getOverrideProps(overrides, "image")}
             ></Image>
           </Flex>

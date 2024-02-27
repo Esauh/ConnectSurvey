@@ -193,7 +193,7 @@ export default function LandingPage(props) {
             position="relative"
             padding="0px 0px 0px 0px"
             objectFit="contain"
-            src=""
+            src="https://static.thenounproject.com/png/350406-200.png"
             {...getOverrideProps(overrides, "image")}
           ></Image>
         </Flex>
