@@ -6,10 +6,11 @@
 
 /* eslint-disable */
 import * as React from "react";
-import { getOverrideProps } from "./utils";
+import { getOverrideProps, useNavigateAction } from "./utils";
 import { Button, Flex, Icon, Image, Text, View } from "@aws-amplify/ui-react";
 export default function EndingPage(props) {
   const { overrides, ...rest } = props;
+  const buttonOnClick = useNavigateAction({ type: "url", url: "/callhistory" });
   return (
     <View
       width="1920px"
@@ -170,6 +171,9 @@ export default function EndingPage(props) {
                 isDisabled={false}
                 variation="primary"
                 children="<- Go back to Call History"
+                onClick={() => {
+                  buttonOnClick();
+                }}
                 {...getOverrideProps(overrides, "Button")}
               ></Button>
             </Flex>

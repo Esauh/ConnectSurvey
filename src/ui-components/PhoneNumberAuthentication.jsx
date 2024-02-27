@@ -10,7 +10,7 @@ import { getOverrideProps, useNavigateAction } from "./utils";
 import { Button, Flex, Text, TextField, View } from "@aws-amplify/ui-react";
 export default function PhoneNumberAuthentication(props) {
   const { overrides, ...rest } = props;
-  const buttonOnClick = useNavigateAction({ type: "url", url: "/feedback" });
+  const buttonOnClick = useNavigateAction({ type: "url", url: "/callhistory" });
   return (
     <View
       width="1920px"
@@ -127,7 +127,7 @@ export default function PhoneNumberAuthentication(props) {
               position="relative"
               padding="0px 0px 0px 0px"
               whiteSpace="pre-wrap"
-              children="Enter in the phone number used to contact our call center and click Authenticate to view your recent call history"
+              children="Enter in the phone number used to contact our call center and click continue to view your recent call history"
               {...getOverrideProps(
                 overrides,
                 "Keep up to date on the latest and greatest in the frontend and fullstack community"
@@ -164,7 +164,7 @@ export default function PhoneNumberAuthentication(props) {
               size="default"
               isDisabled={false}
               variation="primary"
-              children="Authenticate"
+              children="Continue"
               onClick={() => {
                 buttonOnClick();
               }}

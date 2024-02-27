@@ -6,7 +6,7 @@
 
 /* eslint-disable */
 import * as React from "react";
-import { getOverrideProps } from "./utils";
+import { getOverrideProps, useNavigateAction } from "./utils";
 import {
   Button,
   Flex,
@@ -19,6 +19,26 @@ import {
 } from "@aws-amplify/ui-react";
 export default function CallHistory(props) {
   const { overrides, ...rest } = props;
+  const buttonThreeEightSixZeroTwoTwoSevenOneOnClick = useNavigateAction({
+    type: "url",
+    url: "/feedback",
+  });
+  const buttonThreeEightSixZeroTwoTwoSevenSixOnClick = useNavigateAction({
+    type: "url",
+    url: "/feedback",
+  });
+  const buttonThreeEightSixZeroTwoTwoEightOneOnClick = useNavigateAction({
+    type: "url",
+    url: "/feedback",
+  });
+  const buttonThreeEightSixZeroTwoTwoEightSevenOnClick = useNavigateAction({
+    type: "url",
+    url: "/feedback",
+  });
+  const buttonThreeEightSixZeroTwoTwoNineThreeOnClick = useNavigateAction({
+    type: "url",
+    url: "/feedback",
+  });
   return (
     <View
       width="1920px"
@@ -193,6 +213,9 @@ export default function CallHistory(props) {
             isDisabled={false}
             variation="primary"
             children="Leave Feedback"
+            onClick={() => {
+              buttonThreeEightSixZeroTwoTwoSevenOneOnClick();
+            }}
             {...getOverrideProps(overrides, "Button38602271")}
           ></Button>
         </View>
@@ -288,6 +311,9 @@ export default function CallHistory(props) {
             isDisabled={false}
             variation="primary"
             children="Leave Feedback"
+            onClick={() => {
+              buttonThreeEightSixZeroTwoTwoSevenSixOnClick();
+            }}
             {...getOverrideProps(overrides, "Button38602276")}
           ></Button>
         </View>
@@ -383,6 +409,9 @@ export default function CallHistory(props) {
             isDisabled={false}
             variation="primary"
             children="Leave Feedback"
+            onClick={() => {
+              buttonThreeEightSixZeroTwoTwoEightOneOnClick();
+            }}
             {...getOverrideProps(overrides, "Button38602281")}
           ></Button>
         </View>
@@ -491,6 +520,9 @@ export default function CallHistory(props) {
               isDisabled={false}
               variation="primary"
               children="Leave Feedback"
+              onClick={() => {
+                buttonThreeEightSixZeroTwoTwoEightSevenOnClick();
+              }}
               {...getOverrideProps(overrides, "Button38602287")}
             ></Button>
           </View>
@@ -600,6 +632,9 @@ export default function CallHistory(props) {
               isDisabled={false}
               variation="primary"
               children="Leave Feedback"
+              onClick={() => {
+                buttonThreeEightSixZeroTwoTwoNineThreeOnClick();
+              }}
               {...getOverrideProps(overrides, "Button38602293")}
             ></Button>
           </View>

@@ -6,7 +6,7 @@
 
 /* eslint-disable */
 import * as React from "react";
-import { getOverrideProps } from "./utils";
+import { getOverrideProps, useNavigateAction } from "./utils";
 import {
   Button,
   Flex,
@@ -18,6 +18,14 @@ import {
 } from "@aws-amplify/ui-react";
 export default function FeedbackSurvey(props) {
   const { overrides, ...rest } = props;
+  const buttonThreeEightSixZeroTwoSixTwoTwoOnClick = useNavigateAction({
+    type: "url",
+    url: "/ending",
+  });
+  const buttonThreeEightSixZeroTwoSixTwoThreeOnClick = useNavigateAction({
+    type: "url",
+    url: "/ending",
+  });
   return (
     <View
       width="1920px"
@@ -58,6 +66,7 @@ export default function FeedbackSurvey(props) {
         isDisabled={true}
         labelHidden={false}
         variation="default"
+        inputMode=""
         {...getOverrideProps(overrides, "TextAreaField38602592")}
       ></TextAreaField>
       <TextAreaField
@@ -72,6 +81,7 @@ export default function FeedbackSurvey(props) {
         isDisabled={true}
         labelHidden={false}
         variation="default"
+        inputMode=""
         {...getOverrideProps(overrides, "TextAreaField38602593")}
       ></TextAreaField>
       <View
@@ -559,6 +569,9 @@ export default function FeedbackSurvey(props) {
         isDisabled={false}
         variation="primary"
         children="Submit Feedback!"
+        onClick={() => {
+          buttonThreeEightSixZeroTwoSixTwoTwoOnClick();
+        }}
         {...getOverrideProps(overrides, "Button38602622")}
       ></Button>
       <Button
@@ -572,6 +585,9 @@ export default function FeedbackSurvey(props) {
         isDisabled={false}
         variation="primary"
         children="If you wish to leave an audio recording as feedback click here to do"
+        onClick={() => {
+          buttonThreeEightSixZeroTwoSixTwoThreeOnClick();
+        }}
         {...getOverrideProps(overrides, "Button38602623")}
       ></Button>
     </View>
