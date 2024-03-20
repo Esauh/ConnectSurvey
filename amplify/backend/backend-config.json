@@ -1,6 +1,6 @@
 {
   "auth": {
-    "surveytest6a2e08b1": {
+    "SurveyTest": {
       "customAuth": false,
       "dependsOn": [],
       "frontendAuthConfig": {
@@ -13,18 +13,25 @@
           "passwordPolicyMinLength": 8
         },
         "signupAttributes": [
-          "EMAIL"
+          "PHONE_NUMBER",
+          "PREFERRED_USERNAME",
+          "NAME"
         ],
         "socialProviders": [],
-        "usernameAttributes": [
-          "PHONE_NUMBER"
-        ],
+        "usernameAttributes": [],
         "verificationMechanisms": [
           "EMAIL"
         ]
       },
       "providerPlugin": "awscloudformation",
       "service": "Cognito"
+    }
+  },
+  "storage": {
+    "surveystorage": {
+      "dependsOn": [],
+      "providerPlugin": "awscloudformation",
+      "service": "S3"
     }
   }
 }
