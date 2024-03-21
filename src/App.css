@@ -1,5 +1,8 @@
 .App {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-width: 100vh;
 }
 
 .App-logo {
@@ -35,4 +38,13 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.Content {
+  flex: 1; /* Allow the main content area to grow and fill the available space */
+}
+
+.Footer {
+  flex-shrink: 0;
+  width: 100%;
 }

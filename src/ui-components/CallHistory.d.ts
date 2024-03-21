@@ -5,6 +5,7 @@
  **************************************************************************/
 
 import * as React from "react";
+import { Agent, Incident } from "../models";
 import { ButtonProps, FlexProps, IconProps, SearchFieldProps, SelectFieldProps, TextFieldProps, TextProps, ViewProps } from "@aws-amplify/ui-react";
 export declare type EscapeHatchProps = {
     [elementHierarchy: string]: Record<string, unknown>;
@@ -24,32 +25,45 @@ export declare type CallHistoryOverridesProps = {
     TextField?: PrimitiveOverrideProps<TextFieldProps>;
     "Recent Calls"?: PrimitiveOverrideProps<TextProps>;
     "Group 138602267"?: PrimitiveOverrideProps<ViewProps>;
-    "Rectangle 138602268"?: PrimitiveOverrideProps<IconProps>;
-    "Agent ID: 67895 Date/Time: 11/29/2023 | 5:02 pm"?: PrimitiveOverrideProps<TextProps>;
-    "Sally, Sue"?: PrimitiveOverrideProps<TextProps>;
-    Button38602271?: PrimitiveOverrideProps<ButtonProps>;
+    "Group 13990202"?: PrimitiveOverrideProps<ViewProps>;
+    "Rectangle 13990203"?: PrimitiveOverrideProps<IconProps>;
+    "Incident Time3990204"?: PrimitiveOverrideProps<TextProps>;
+    "Incident Date3990205"?: PrimitiveOverrideProps<TextProps>;
+    "Agent Name3990206"?: PrimitiveOverrideProps<TextProps>;
+    "Incident Summary3990207"?: PrimitiveOverrideProps<TextProps>;
+    Button3990208?: PrimitiveOverrideProps<ButtonProps>;
     "Group 4"?: PrimitiveOverrideProps<ViewProps>;
-    "Rectangle 138602273"?: PrimitiveOverrideProps<IconProps>;
-    "Agent ID: 12156 Date/Time: 11/25/2023 | 9:42 am"?: PrimitiveOverrideProps<TextProps>;
-    "Richard, Jones"?: PrimitiveOverrideProps<TextProps>;
-    Button38602276?: PrimitiveOverrideProps<ButtonProps>;
+    "Group 13990215"?: PrimitiveOverrideProps<ViewProps>;
+    "Rectangle 13990216"?: PrimitiveOverrideProps<IconProps>;
+    "Incident Time3990226"?: PrimitiveOverrideProps<TextProps>;
+    "Incident Date3990218"?: PrimitiveOverrideProps<TextProps>;
+    "Agent Name3990219"?: PrimitiveOverrideProps<TextProps>;
+    "Incident Summary3990220"?: PrimitiveOverrideProps<TextProps>;
+    Button3990221?: PrimitiveOverrideProps<ButtonProps>;
     "Group 3"?: PrimitiveOverrideProps<ViewProps>;
-    "Rectangle 138602278"?: PrimitiveOverrideProps<IconProps>;
-    "Agent ID: 90845 Date/Time: 11/28/2023 | 7:37 am"?: PrimitiveOverrideProps<TextProps>;
-    "Victoria, Smith"?: PrimitiveOverrideProps<TextProps>;
-    Button38602281?: PrimitiveOverrideProps<ButtonProps>;
-    "Group 2"?: PrimitiveOverrideProps<ViewProps>;
+    "Group 13990172"?: PrimitiveOverrideProps<ViewProps>;
+    "Rectangle 13990173"?: PrimitiveOverrideProps<IconProps>;
+    "Incident Time3990174"?: PrimitiveOverrideProps<TextProps>;
+    "Incident Date3990175"?: PrimitiveOverrideProps<TextProps>;
+    "Agent Name3990176"?: PrimitiveOverrideProps<TextProps>;
+    "Incident Summary3990177"?: PrimitiveOverrideProps<TextProps>;
+    Button3990178?: PrimitiveOverrideProps<ButtonProps>;
+    "Group 238602282"?: PrimitiveOverrideProps<ViewProps>;
     "Group 138602283"?: PrimitiveOverrideProps<ViewProps>;
     "Rectangle 138602284"?: PrimitiveOverrideProps<IconProps>;
-    "Agent ID: 31228 Date/Time: 12/01/2023 | 3:42 pm"?: PrimitiveOverrideProps<TextProps>;
-    "John, Doe"?: PrimitiveOverrideProps<TextProps>;
+    "Incident Time3987234"?: PrimitiveOverrideProps<TextProps>;
+    "Incident Date3987233"?: PrimitiveOverrideProps<TextProps>;
+    "Agent Name38602285"?: PrimitiveOverrideProps<TextProps>;
+    "Incident Summary38602286"?: PrimitiveOverrideProps<TextProps>;
     Button38602287?: PrimitiveOverrideProps<ButtonProps>;
     "Group 6"?: PrimitiveOverrideProps<ViewProps>;
-    "Group 138602289"?: PrimitiveOverrideProps<ViewProps>;
-    "Rectangle 138602290"?: PrimitiveOverrideProps<IconProps>;
-    "Agent ID: 09834 Date/Time: 10/12/2023 | 11:34 am"?: PrimitiveOverrideProps<TextProps>;
-    "Christopher, Lewis"?: PrimitiveOverrideProps<TextProps>;
-    Button38602293?: PrimitiveOverrideProps<ButtonProps>;
+    "Group 23990182"?: PrimitiveOverrideProps<ViewProps>;
+    "Rectangle 13990183"?: PrimitiveOverrideProps<IconProps>;
+    "Incident Time3990184"?: PrimitiveOverrideProps<TextProps>;
+    "Incident Date3990185"?: PrimitiveOverrideProps<TextProps>;
+    "Agent Name3990186"?: PrimitiveOverrideProps<TextProps>;
+    "Incident Summary3990187"?: PrimitiveOverrideProps<TextProps>;
+    Button3990188?: PrimitiveOverrideProps<ButtonProps>;
     SearchField?: PrimitiveOverrideProps<SearchFieldProps>;
     label?: PrimitiveOverrideProps<TextProps>;
     "Group 5"?: PrimitiveOverrideProps<ViewProps>;
@@ -57,6 +71,9 @@ export declare type CallHistoryOverridesProps = {
     SelectField?: PrimitiveOverrideProps<SelectFieldProps>;
 } & EscapeHatchProps;
 export declare type CallHistoryProps = React.PropsWithChildren<Partial<ViewProps> & {
+    agent?: Agent;
+    incident?: Incident;
+} & {
     overrides?: CallHistoryOverridesProps | undefined | null;
 }>;
 export default function CallHistory(props: CallHistoryProps): React.ReactElement;

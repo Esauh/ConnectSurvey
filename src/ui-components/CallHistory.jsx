@@ -18,24 +18,8 @@ import {
   View,
 } from "@aws-amplify/ui-react";
 export default function CallHistory(props) {
-  const { overrides, ...rest } = props;
-  const buttonThreeEightSixZeroTwoTwoSevenOneOnClick = useNavigateAction({
-    type: "url",
-    url: "/feedback",
-  });
-  const buttonThreeEightSixZeroTwoTwoSevenSixOnClick = useNavigateAction({
-    type: "url",
-    url: "/feedback",
-  });
-  const buttonThreeEightSixZeroTwoTwoEightOneOnClick = useNavigateAction({
-    type: "url",
-    url: "/feedback",
-  });
+  const { agent, incident, overrides, ...rest } = props;
   const buttonThreeEightSixZeroTwoTwoEightSevenOnClick = useNavigateAction({
-    type: "url",
-    url: "/feedback",
-  });
-  const buttonThreeEightSixZeroTwoTwoNineThreeOnClick = useNavigateAction({
     type: "url",
     url: "/feedback",
   });
@@ -83,7 +67,7 @@ export default function CallHistory(props) {
         <TextField
           width="291px"
           height="36px"
-          placeholder="Agent ID"
+          placeholder="Incident Status"
           position="absolute"
           top="350px"
           left="20px"
@@ -129,22 +113,10 @@ export default function CallHistory(props) {
           left="411px"
           {...getOverrideProps(overrides, "Group 138602267")}
         >
-          <Icon
+          <View
+            padding="0px 0px 0px 0px"
             width="1473px"
-            height="152.03px"
-            viewBox={{
-              minX: 0,
-              minY: 0,
-              width: 1473,
-              height: 152.02548217773438,
-            }}
-            paths={[
-              {
-                d: "M0 0L1473 0L1473 152.025L0 152.025L0 0Z",
-                fill: "rgba(8,39,69,1)",
-                fillRule: "nonzero",
-              },
-            ]}
+            height="156px"
             display="block"
             gap="unset"
             alignItems="unset"
@@ -152,72 +124,133 @@ export default function CallHistory(props) {
             position="absolute"
             top="0px"
             left="0px"
-            {...getOverrideProps(overrides, "Rectangle 138602268")}
-          ></Icon>
-          <Text
-            fontFamily="Inter"
-            fontSize="22px"
-            fontWeight="400"
-            color="rgba(255,255,255,1)"
-            lineHeight="24px"
-            textAlign="left"
-            display="block"
-            direction="column"
-            justifyContent="unset"
-            letterSpacing="0.07px"
-            width="624.12px"
-            height="79.32px"
-            gap="unset"
-            alignItems="unset"
-            position="absolute"
-            top="76.68px"
-            left="30.78px"
-            padding="0px 0px 0px 0px"
-            whiteSpace="pre-wrap"
-            children="Agent ID: 67895&#xA;&#xA;Date/Time: 11/29/2023 | 5:02 pm "
-            {...getOverrideProps(
-              overrides,
-              "Agent ID: 67895 Date/Time: 11/29/2023 | 5:02 pm"
-            )}
-          ></Text>
-          <Text
-            fontFamily="Inter"
-            fontSize="26px"
-            fontWeight="600"
-            color="rgba(255,255,255,1)"
-            lineHeight="30px"
-            textAlign="left"
-            display="block"
-            direction="column"
-            justifyContent="unset"
-            width="261.96px"
-            height="22.36px"
-            gap="unset"
-            alignItems="unset"
-            position="absolute"
-            top="23.76px"
-            left="30.78px"
-            padding="0px 0px 0px 0px"
-            whiteSpace="pre-wrap"
-            children="Sally, Sue"
-            {...getOverrideProps(overrides, "Sally, Sue")}
-          ></Text>
-          <Button
-            width="435px"
-            height="51.78px"
-            position="absolute"
-            top="49.57px"
-            left="989px"
-            backgroundColor="rgba(67,168,84,1)"
-            size="default"
-            isDisabled={false}
-            variation="primary"
-            children="Leave Feedback"
-            onClick={() => {
-              buttonThreeEightSixZeroTwoTwoSevenOneOnClick();
-            }}
-            {...getOverrideProps(overrides, "Button38602271")}
-          ></Button>
+            {...getOverrideProps(overrides, "Group 13990202")}
+          >
+            <Icon
+              width="1473px"
+              height="156px"
+              viewBox={{ minX: 0, minY: 0, width: 1473, height: 156 }}
+              paths={[
+                {
+                  d: "M0 0L1473 0L1473 156L0 156L0 0Z",
+                  fill: "rgba(8,39,69,1)",
+                  fillRule: "nonzero",
+                },
+              ]}
+              display="block"
+              gap="unset"
+              alignItems="unset"
+              justifyContent="unset"
+              position="absolute"
+              top="0px"
+              left="0px"
+              {...getOverrideProps(overrides, "Rectangle 13990203")}
+            ></Icon>
+            <Text
+              fontFamily="Inter"
+              fontSize="22px"
+              fontWeight="400"
+              color="rgba(255,255,255,1)"
+              lineHeight="24px"
+              textAlign="left"
+              display="block"
+              direction="column"
+              justifyContent="unset"
+              letterSpacing="0.07px"
+              width="195px"
+              height="30px"
+              gap="unset"
+              alignItems="unset"
+              position="absolute"
+              top="111px"
+              left="212px"
+              padding="0px 0px 0px 0px"
+              whiteSpace="pre-wrap"
+              children={incident?.time}
+              {...getOverrideProps(overrides, "Incident Time3990204")}
+            ></Text>
+            <Text
+              fontFamily="Inter"
+              fontSize="22px"
+              fontWeight="400"
+              color="rgba(255,255,255,1)"
+              lineHeight="24px"
+              textAlign="left"
+              display="block"
+              direction="column"
+              justifyContent="unset"
+              letterSpacing="0.07px"
+              width="195px"
+              height="30px"
+              gap="unset"
+              alignItems="unset"
+              position="absolute"
+              top="111px"
+              left="37px"
+              padding="0px 0px 0px 0px"
+              whiteSpace="pre-wrap"
+              children={incident?.date}
+              {...getOverrideProps(overrides, "Incident Date3990205")}
+            ></Text>
+            <Text
+              fontFamily="Inter"
+              fontSize="22px"
+              fontWeight="400"
+              color="rgba(255,255,255,1)"
+              lineHeight="24px"
+              textAlign="left"
+              display="block"
+              direction="column"
+              justifyContent="unset"
+              letterSpacing="0.07px"
+              width="310px"
+              height="30px"
+              gap="unset"
+              alignItems="unset"
+              position="absolute"
+              top="70px"
+              left="37px"
+              padding="0px 0px 0px 0px"
+              whiteSpace="pre-wrap"
+              children={`${"Agent: "}${agent?.name}`}
+              {...getOverrideProps(overrides, "Agent Name3990206")}
+            ></Text>
+            <Text
+              fontFamily="Inter"
+              fontSize="26px"
+              fontWeight="600"
+              color="rgba(255,255,255,1)"
+              lineHeight="30px"
+              textAlign="left"
+              display="block"
+              direction="column"
+              justifyContent="unset"
+              width="450px"
+              height="22px"
+              gap="unset"
+              alignItems="unset"
+              position="absolute"
+              top="17.89px"
+              left="36.54px"
+              padding="0px 0px 0px 0px"
+              whiteSpace="pre-wrap"
+              children={incident?.summary}
+              {...getOverrideProps(overrides, "Incident Summary3990207")}
+            ></Text>
+            <Button
+              width="434.98px"
+              height="51px"
+              position="absolute"
+              top="49px"
+              left="988.59px"
+              backgroundColor="rgba(67,168,84,1)"
+              size="default"
+              isDisabled={false}
+              variation="primary"
+              children="Leave Feedback"
+              {...getOverrideProps(overrides, "Button3990208")}
+            ></Button>
+          </View>
         </View>
         <View
           padding="0px 0px 0px 0px"
@@ -232,17 +265,10 @@ export default function CallHistory(props) {
           left="411px"
           {...getOverrideProps(overrides, "Group 4")}
         >
-          <Icon
+          <View
+            padding="0px 0px 0px 0px"
             width="1473px"
             height="156px"
-            viewBox={{ minX: 0, minY: 0, width: 1473, height: 156 }}
-            paths={[
-              {
-                d: "M0 0L1473 0L1473 156L0 156L0 0Z",
-                fill: "rgba(8,39,69,1)",
-                fillRule: "nonzero",
-              },
-            ]}
             display="block"
             gap="unset"
             alignItems="unset"
@@ -250,72 +276,133 @@ export default function CallHistory(props) {
             position="absolute"
             top="0px"
             left="0px"
-            {...getOverrideProps(overrides, "Rectangle 138602273")}
-          ></Icon>
-          <Text
-            fontFamily="Inter"
-            fontSize="22px"
-            fontWeight="400"
-            color="rgba(255,255,255,1)"
-            lineHeight="24px"
-            textAlign="left"
-            display="block"
-            direction="column"
-            justifyContent="unset"
-            letterSpacing="0.07px"
-            width="740.8px"
-            height="59.03px"
-            gap="unset"
-            alignItems="unset"
-            position="absolute"
-            top="73.08px"
-            left="36.54px"
-            padding="0px 0px 0px 0px"
-            whiteSpace="pre-wrap"
-            children="Agent ID: 12156&#xA;&#xA;Date/Time: 11/25/2023 | 9:42 am "
-            {...getOverrideProps(
-              overrides,
-              "Agent ID: 12156 Date/Time: 11/25/2023 | 9:42 am"
-            )}
-          ></Text>
-          <Text
-            fontFamily="Inter"
-            fontSize="26px"
-            fontWeight="600"
-            color="rgba(255,255,255,1)"
-            lineHeight="30px"
-            textAlign="left"
-            display="block"
-            direction="column"
-            justifyContent="unset"
-            width="310.93px"
-            height="22.95px"
-            gap="unset"
-            alignItems="unset"
-            position="absolute"
-            top="18.74px"
-            left="36.54px"
-            padding="0px 0px 0px 0px"
-            whiteSpace="pre-wrap"
-            children="Richard, Jones  "
-            {...getOverrideProps(overrides, "Richard, Jones")}
-          ></Text>
-          <Button
-            width="434.98px"
-            height="53.43px"
-            position="absolute"
-            top="51.33px"
-            left="988.59px"
-            backgroundColor="rgba(67,168,84,1)"
-            size="default"
-            isDisabled={false}
-            variation="primary"
-            children="Leave Feedback"
-            onClick={() => {
-              buttonThreeEightSixZeroTwoTwoSevenSixOnClick();
-            }}
-            {...getOverrideProps(overrides, "Button38602276")}
-          ></Button>
+            {...getOverrideProps(overrides, "Group 13990215")}
+          >
+            <Icon
+              width="1473px"
+              height="156px"
+              viewBox={{ minX: 0, minY: 0, width: 1473, height: 156 }}
+              paths={[
+                {
+                  d: "M0 0L1473 0L1473 156L0 156L0 0Z",
+                  fill: "rgba(8,39,69,1)",
+                  fillRule: "nonzero",
+                },
+              ]}
+              display="block"
+              gap="unset"
+              alignItems="unset"
+              justifyContent="unset"
+              position="absolute"
+              top="0px"
+              left="0px"
+              {...getOverrideProps(overrides, "Rectangle 13990216")}
+            ></Icon>
+            <Text
+              fontFamily="Inter"
+              fontSize="22px"
+              fontWeight="400"
+              color="rgba(255,255,255,1)"
+              lineHeight="24px"
+              textAlign="left"
+              display="block"
+              direction="column"
+              justifyContent="unset"
+              letterSpacing="0.07px"
+              width="195px"
+              height="30px"
+              gap="unset"
+              alignItems="unset"
+              position="absolute"
+              top="111px"
+              left="212px"
+              padding="0px 0px 0px 0px"
+              whiteSpace="pre-wrap"
+              children={incident?.time}
+              {...getOverrideProps(overrides, "Incident Time3990226")}
+            ></Text>
+            <Text
+              fontFamily="Inter"
+              fontSize="22px"
+              fontWeight="400"
+              color="rgba(255,255,255,1)"
+              lineHeight="24px"
+              textAlign="left"
+              display="block"
+              direction="column"
+              justifyContent="unset"
+              letterSpacing="0.07px"
+              width="195px"
+              height="30px"
+              gap="unset"
+              alignItems="unset"
+              position="absolute"
+              top="111px"
+              left="37px"
+              padding="0px 0px 0px 0px"
+              whiteSpace="pre-wrap"
+              children={incident?.date}
+              {...getOverrideProps(overrides, "Incident Date3990218")}
+            ></Text>
+            <Text
+              fontFamily="Inter"
+              fontSize="22px"
+              fontWeight="400"
+              color="rgba(255,255,255,1)"
+              lineHeight="24px"
+              textAlign="left"
+              display="block"
+              direction="column"
+              justifyContent="unset"
+              letterSpacing="0.07px"
+              width="319px"
+              height="30px"
+              gap="unset"
+              alignItems="unset"
+              position="absolute"
+              top="70px"
+              left="37px"
+              padding="0px 0px 0px 0px"
+              whiteSpace="pre-wrap"
+              children={`${"Agent: "}${agent?.name}`}
+              {...getOverrideProps(overrides, "Agent Name3990219")}
+            ></Text>
+            <Text
+              fontFamily="Inter"
+              fontSize="26px"
+              fontWeight="600"
+              color="rgba(255,255,255,1)"
+              lineHeight="30px"
+              textAlign="left"
+              display="block"
+              direction="column"
+              justifyContent="unset"
+              width="450px"
+              height="22px"
+              gap="unset"
+              alignItems="unset"
+              position="absolute"
+              top="17.89px"
+              left="36.54px"
+              padding="0px 0px 0px 0px"
+              whiteSpace="pre-wrap"
+              children={incident?.summary}
+              {...getOverrideProps(overrides, "Incident Summary3990220")}
+            ></Text>
+            <Button
+              width="434.98px"
+              height="51px"
+              position="absolute"
+              top="49px"
+              left="988.59px"
+              backgroundColor="rgba(67,168,84,1)"
+              size="default"
+              isDisabled={false}
+              variation="primary"
+              children="Leave Feedback"
+              {...getOverrideProps(overrides, "Button3990221")}
+            ></Button>
+          </View>
         </View>
         <View
           padding="0px 0px 0px 0px"
@@ -330,17 +417,10 @@ export default function CallHistory(props) {
           left="411px"
           {...getOverrideProps(overrides, "Group 3")}
         >
-          <Icon
+          <View
+            padding="0px 0px 0px 0px"
             width="1473px"
             height="156px"
-            viewBox={{ minX: 0, minY: 0, width: 1473, height: 156 }}
-            paths={[
-              {
-                d: "M0 0L1473 0L1473 156L0 156L0 0Z",
-                fill: "rgba(8,39,69,1)",
-                fillRule: "nonzero",
-              },
-            ]}
             display="block"
             gap="unset"
             alignItems="unset"
@@ -348,72 +428,133 @@ export default function CallHistory(props) {
             position="absolute"
             top="0px"
             left="0px"
-            {...getOverrideProps(overrides, "Rectangle 138602278")}
-          ></Icon>
-          <Text
-            fontFamily="Inter"
-            fontSize="22px"
-            fontWeight="400"
-            color="rgba(255,255,255,1)"
-            lineHeight="24px"
-            textAlign="left"
-            display="block"
-            direction="column"
-            justifyContent="unset"
-            letterSpacing="0.07px"
-            width="740.8px"
-            height="59.03px"
-            gap="unset"
-            alignItems="unset"
-            position="absolute"
-            top="73.08px"
-            left="36.54px"
-            padding="0px 0px 0px 0px"
-            whiteSpace="pre-wrap"
-            children="Agent ID: 90845&#xA;&#xA;Date/Time: 11/28/2023 | 7:37 am "
-            {...getOverrideProps(
-              overrides,
-              "Agent ID: 90845 Date/Time: 11/28/2023 | 7:37 am"
-            )}
-          ></Text>
-          <Text
-            fontFamily="Inter"
-            fontSize="26px"
-            fontWeight="600"
-            color="rgba(255,255,255,1)"
-            lineHeight="30px"
-            textAlign="left"
-            display="block"
-            direction="column"
-            justifyContent="unset"
-            width="310.93px"
-            height="22.95px"
-            gap="unset"
-            alignItems="unset"
-            position="absolute"
-            top="18.74px"
-            left="36.54px"
-            padding="0px 0px 0px 0px"
-            whiteSpace="pre-wrap"
-            children="Victoria, Smith"
-            {...getOverrideProps(overrides, "Victoria, Smith")}
-          ></Text>
-          <Button
-            width="434.98px"
-            height="53.43px"
-            position="absolute"
-            top="51.33px"
-            left="988.59px"
-            backgroundColor="rgba(67,168,84,1)"
-            size="default"
-            isDisabled={false}
-            variation="primary"
-            children="Leave Feedback"
-            onClick={() => {
-              buttonThreeEightSixZeroTwoTwoEightOneOnClick();
-            }}
-            {...getOverrideProps(overrides, "Button38602281")}
-          ></Button>
+            {...getOverrideProps(overrides, "Group 13990172")}
+          >
+            <Icon
+              width="1473px"
+              height="156px"
+              viewBox={{ minX: 0, minY: 0, width: 1473, height: 156 }}
+              paths={[
+                {
+                  d: "M0 0L1473 0L1473 156L0 156L0 0Z",
+                  fill: "rgba(8,39,69,1)",
+                  fillRule: "nonzero",
+                },
+              ]}
+              display="block"
+              gap="unset"
+              alignItems="unset"
+              justifyContent="unset"
+              position="absolute"
+              top="0px"
+              left="0px"
+              {...getOverrideProps(overrides, "Rectangle 13990173")}
+            ></Icon>
+            <Text
+              fontFamily="Inter"
+              fontSize="22px"
+              fontWeight="400"
+              color="rgba(255,255,255,1)"
+              lineHeight="24px"
+              textAlign="left"
+              display="block"
+              direction="column"
+              justifyContent="unset"
+              letterSpacing="0.07px"
+              width="195px"
+              height="30px"
+              gap="unset"
+              alignItems="unset"
+              position="absolute"
+              top="111px"
+              left="212px"
+              padding="0px 0px 0px 0px"
+              whiteSpace="pre-wrap"
+              children={incident?.time}
+              {...getOverrideProps(overrides, "Incident Time3990174")}
+            ></Text>
+            <Text
+              fontFamily="Inter"
+              fontSize="22px"
+              fontWeight="400"
+              color="rgba(255,255,255,1)"
+              lineHeight="24px"
+              textAlign="left"
+              display="block"
+              direction="column"
+              justifyContent="unset"
+              letterSpacing="0.07px"
+              width="195px"
+              height="30px"
+              gap="unset"
+              alignItems="unset"
+              position="absolute"
+              top="111px"
+              left="37px"
+              padding="0px 0px 0px 0px"
+              whiteSpace="pre-wrap"
+              children={incident?.date}
+              {...getOverrideProps(overrides, "Incident Date3990175")}
+            ></Text>
+            <Text
+              fontFamily="Inter"
+              fontSize="22px"
+              fontWeight="400"
+              color="rgba(255,255,255,1)"
+              lineHeight="24px"
+              textAlign="left"
+              display="block"
+              direction="column"
+              justifyContent="unset"
+              letterSpacing="0.07px"
+              width="319px"
+              height="30px"
+              gap="unset"
+              alignItems="unset"
+              position="absolute"
+              top="70px"
+              left="37px"
+              padding="0px 0px 0px 0px"
+              whiteSpace="pre-wrap"
+              children={`${"Agent: "}${agent?.name}`}
+              {...getOverrideProps(overrides, "Agent Name3990176")}
+            ></Text>
+            <Text
+              fontFamily="Inter"
+              fontSize="26px"
+              fontWeight="600"
+              color="rgba(255,255,255,1)"
+              lineHeight="30px"
+              textAlign="left"
+              display="block"
+              direction="column"
+              justifyContent="unset"
+              width="450px"
+              height="22px"
+              gap="unset"
+              alignItems="unset"
+              position="absolute"
+              top="17.89px"
+              left="36.54px"
+              padding="0px 0px 0px 0px"
+              whiteSpace="pre-wrap"
+              children={incident?.summary}
+              {...getOverrideProps(overrides, "Incident Summary3990177")}
+            ></Text>
+            <Button
+              width="434.98px"
+              height="51px"
+              position="absolute"
+              top="49px"
+              left="988.59px"
+              backgroundColor="rgba(67,168,84,1)"
+              size="default"
+              isDisabled={false}
+              variation="primary"
+              children="Leave Feedback"
+              {...getOverrideProps(overrides, "Button3990178")}
+            ></Button>
+          </View>
         </View>
         <View
           padding="0px 0px 0px 0px"
@@ -426,7 +567,7 @@ export default function CallHistory(props) {
           position="absolute"
           top="120px"
           left="411px"
-          {...getOverrideProps(overrides, "Group 2")}
+          {...getOverrideProps(overrides, "Group 238602282")}
         >
           <View
             padding="0px 0px 0px 0px"
@@ -472,20 +613,63 @@ export default function CallHistory(props) {
               direction="column"
               justifyContent="unset"
               letterSpacing="0.07px"
-              width="740.8px"
-              height="56.35px"
+              width="195px"
+              height="30px"
               gap="unset"
               alignItems="unset"
               position="absolute"
-              top="69.76px"
-              left="36.54px"
+              top="111px"
+              left="212px"
               padding="0px 0px 0px 0px"
               whiteSpace="pre-wrap"
-              children="Agent ID: 31228&#xA;&#xA;Date/Time: 12/01/2023 | 3:42 pm "
-              {...getOverrideProps(
-                overrides,
-                "Agent ID: 31228 Date/Time: 12/01/2023 | 3:42 pm"
-              )}
+              children={incident?.time}
+              {...getOverrideProps(overrides, "Incident Time3987234")}
+            ></Text>
+            <Text
+              fontFamily="Inter"
+              fontSize="22px"
+              fontWeight="400"
+              color="rgba(255,255,255,1)"
+              lineHeight="24px"
+              textAlign="left"
+              display="block"
+              direction="column"
+              justifyContent="unset"
+              letterSpacing="0.07px"
+              width="195px"
+              height="30px"
+              gap="unset"
+              alignItems="unset"
+              position="absolute"
+              top="111px"
+              left="37px"
+              padding="0px 0px 0px 0px"
+              whiteSpace="pre-wrap"
+              children={incident?.date}
+              {...getOverrideProps(overrides, "Incident Date3987233")}
+            ></Text>
+            <Text
+              fontFamily="Inter"
+              fontSize="22px"
+              fontWeight="400"
+              color="rgba(255,255,255,1)"
+              lineHeight="24px"
+              textAlign="left"
+              display="block"
+              direction="column"
+              justifyContent="unset"
+              letterSpacing="0.07px"
+              width="319px"
+              height="30px"
+              gap="unset"
+              alignItems="unset"
+              position="absolute"
+              top="70px"
+              left="37px"
+              padding="0px 0px 0px 0px"
+              whiteSpace="pre-wrap"
+              children={`${"Agent: "}${agent?.name}`}
+              {...getOverrideProps(overrides, "Agent Name38602285")}
             ></Text>
             <Text
               fontFamily="Inter"
@@ -497,17 +681,17 @@ export default function CallHistory(props) {
               display="block"
               direction="column"
               justifyContent="unset"
-              width="310.93px"
-              height="21.91px"
+              width="450px"
+              height="22px"
               gap="unset"
               alignItems="unset"
               position="absolute"
-              top="17.89px"
-              left="36.54px"
+              top="18px"
+              left="37px"
               padding="0px 0px 0px 0px"
               whiteSpace="pre-wrap"
-              children="John, Doe"
-              {...getOverrideProps(overrides, "John, Doe")}
+              children={incident?.summary}
+              {...getOverrideProps(overrides, "Incident Summary38602286")}
             ></Text>
             <Button
               width="434.98px"
@@ -551,7 +735,7 @@ export default function CallHistory(props) {
             position="absolute"
             top="0px"
             left="0px"
-            {...getOverrideProps(overrides, "Group 138602289")}
+            {...getOverrideProps(overrides, "Group 23990182")}
           >
             <Icon
               width="1473px"
@@ -571,7 +755,7 @@ export default function CallHistory(props) {
               position="absolute"
               top="0px"
               left="0px"
-              {...getOverrideProps(overrides, "Rectangle 138602290")}
+              {...getOverrideProps(overrides, "Rectangle 13990183")}
             ></Icon>
             <Text
               fontFamily="Inter"
@@ -584,20 +768,63 @@ export default function CallHistory(props) {
               direction="column"
               justifyContent="unset"
               letterSpacing="0.07px"
-              width="740.65px"
-              height="77.52px"
+              width="195px"
+              height="30px"
               gap="unset"
               alignItems="unset"
               position="absolute"
-              top="73.33px"
-              left="36.8px"
+              top="111px"
+              left="212px"
               padding="0px 0px 0px 0px"
               whiteSpace="pre-wrap"
-              children="Agent ID: 09834&#xA;&#xA;Date/Time: 10/12/2023 |  11:34 am"
-              {...getOverrideProps(
-                overrides,
-                "Agent ID: 09834 Date/Time: 10/12/2023 | 11:34 am"
-              )}
+              children={incident?.time}
+              {...getOverrideProps(overrides, "Incident Time3990184")}
+            ></Text>
+            <Text
+              fontFamily="Inter"
+              fontSize="22px"
+              fontWeight="400"
+              color="rgba(255,255,255,1)"
+              lineHeight="24px"
+              textAlign="left"
+              display="block"
+              direction="column"
+              justifyContent="unset"
+              letterSpacing="0.07px"
+              width="195px"
+              height="30px"
+              gap="unset"
+              alignItems="unset"
+              position="absolute"
+              top="111px"
+              left="37px"
+              padding="0px 0px 0px 0px"
+              whiteSpace="pre-wrap"
+              children={incident?.date}
+              {...getOverrideProps(overrides, "Incident Date3990185")}
+            ></Text>
+            <Text
+              fontFamily="Inter"
+              fontSize="22px"
+              fontWeight="400"
+              color="rgba(255,255,255,1)"
+              lineHeight="24px"
+              textAlign="left"
+              display="block"
+              direction="column"
+              justifyContent="unset"
+              letterSpacing="0.07px"
+              width="319px"
+              height="30px"
+              gap="unset"
+              alignItems="unset"
+              position="absolute"
+              top="70px"
+              left="37px"
+              padding="0px 0px 0px 0px"
+              whiteSpace="pre-wrap"
+              children={`${"Agent: "}${agent?.name}`}
+              {...getOverrideProps(overrides, "Agent Name3990186")}
             ></Text>
             <Text
               fontFamily="Inter"
@@ -609,33 +836,30 @@ export default function CallHistory(props) {
               display="block"
               direction="column"
               justifyContent="unset"
-              width="310.93px"
-              height="22.95px"
+              width="450px"
+              height="22px"
               gap="unset"
               alignItems="unset"
               position="absolute"
-              top="18.74px"
+              top="17.89px"
               left="36.54px"
               padding="0px 0px 0px 0px"
               whiteSpace="pre-wrap"
-              children="Christopher, Lewis"
-              {...getOverrideProps(overrides, "Christopher, Lewis")}
+              children={incident?.summary}
+              {...getOverrideProps(overrides, "Incident Summary3990187")}
             ></Text>
             <Button
               width="434.98px"
-              height="53.43px"
+              height="51px"
               position="absolute"
-              top="51.33px"
+              top="49px"
               left="988.59px"
               backgroundColor="rgba(67,168,84,1)"
               size="default"
               isDisabled={false}
               variation="primary"
               children="Leave Feedback"
-              onClick={() => {
-                buttonThreeEightSixZeroTwoTwoNineThreeOnClick();
-              }}
-              {...getOverrideProps(overrides, "Button38602293")}
+              {...getOverrideProps(overrides, "Button3990188")}
             ></Button>
           </View>
         </View>
@@ -673,7 +897,7 @@ export default function CallHistory(props) {
           left="calc(50% - 150px - 790px)"
           padding="0px 0px 0px 0px"
           whiteSpace="pre-wrap"
-          children="Search by Agent ID"
+          children="Search by Incident Status"
           {...getOverrideProps(overrides, "label")}
         ></Text>
         <View

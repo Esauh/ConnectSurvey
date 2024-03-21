@@ -7,6 +7,8 @@ import AWS from 'aws-sdk';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import {
   LandingPage,
+  NavHeader,
+  FooterLinks,
   PhoneNumberAuthentication,
   FeedbackSurvey,
   EndingPage,
@@ -44,20 +46,30 @@ function App({ signOut, user }) {
   }, []);
 
   return (
-    <Router>
-      <div className="App">
-        <Routes>
-          <Route path="/" element={<LandingPage />} />
-          <Route path="/phone-auth" element={<PhoneNumberAuthentication />} />
-          <Route path="/callhistory" element={<CallHistory />} />
-          <Route path="/feedback" element={<FeedbackSurvey />} />
-          <Route path="/ending" element={<EndingPage />} />
-        </Routes>
-      </div>
-    </Router>
+    <div className="App">
+      <NavHeader />
+      <main className="Content">
+      <LandingPage />
+      </main>
+      <main className="Footer">
+      <FooterLinks width={"100%"} padding={20}/>
+      </main>
+    </div>
+
   );
 }
 
+    // <Router>
+    //   <div className="App">
+    //     <Routes>
+    //       <Route path="/" element={<LandingPage />} />
+    //       <Route path="/phone-auth" element={<PhoneNumberAuthentication />} />
+    //       <Route path="/callhistory" element={<CallHistory />} />
+    //       <Route path="/feedback" element={<FeedbackSurvey />} />
+    //       <Route path="/ending" element={<EndingPage />} />
+    //     </Routes>
+    //   </div>
+    // </Router>
 {/* <>
       <div className="App">
         {user.username}
