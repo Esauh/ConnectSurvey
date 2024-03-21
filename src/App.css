@@ -42,6 +42,7 @@
 
 .Content {
   flex: 1; /* Allow the main content area to grow and fill the available space */
+  padding: 4%;
 }
 
 .Footer {

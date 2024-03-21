@@ -6,10 +6,18 @@
 
 /* eslint-disable */
 import * as React from "react";
-import { getOverrideProps, useAuthSignOutAction } from "./utils";
+import {
+  getOverrideProps,
+  useAuthSignOutAction,
+  useNavigateAction,
+} from "./utils";
 import { Button, Flex, Text } from "@aws-amplify/ui-react";
 export default function NavHeader(props) {
   const { overrides, ...rest } = props;
+  const landingPageOnClick = useNavigateAction({
+    type: "url",
+    url: "LandingPage",
+  });
   const buttonOnClick = useAuthSignOutAction({ global: false });
   return (
     <Flex
@@ -57,6 +65,9 @@ export default function NavHeader(props) {
           padding="0px 0px 0px 0px"
           whiteSpace="pre-wrap"
           children="Landing Page"
+          onClick={() => {
+            landingPageOnClick();
+          }}
           {...getOverrideProps(overrides, "Landing Page")}
         ></Text>
         <Text

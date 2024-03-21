@@ -12,7 +12,7 @@ import {
   PhoneNumberAuthentication,
   FeedbackSurvey,
   EndingPage,
-  CallHistory,
+  CallHistoryv1,
 } from './ui-components';
 import config from './amplifyconfiguration.json';
 import { getCurrentUser } from 'aws-amplify/auth';
@@ -45,30 +45,51 @@ function App({ signOut, user }) {
     fetchAttributes();
   }, []);
 
-  return (
-    <div className="App">
-      <NavHeader />
-      <main className="Content">
-      <LandingPage />
-      </main>
-      <main className="Footer">
-      <FooterLinks width={"100%"} padding={20}/>
-      </main>
-    </div>
+  const navBarOverrides ={
+    "User": {
+      children: user.username.toUpperCase()
+    },
 
+    "NavHeader": {
+      justifyContent: "space-around"
+    }
+  }
+
+  const landingpageOverrides = {
+  "image":{
+    "src": "https://repository-images.githubusercontent.com/137706509/3fee5180-7390-11eb-9c93-dcaf1f7c6567"
+  },
+  "Left":{
+    "width": "65%"
+  },
+  }
+  return (
+    <Router>
+    <div className="App">
+      <NavHeader overrides={navBarOverrides} />
+     <Routes>
+       <Route path="/landingpage" element={<LandingPage flex={"1"} padding={"4%"} overrides={landingpageOverrides}/>} />
+       <Route path="/call-history" element={<CallHistoryv1 flex={"1"} padding={"4%"} />} />
+      <Route path="/feedback" element={<FeedbackSurvey />} />
+       <Route path="/ending" element={<EndingPage />} />
+     </Routes>
+      </div>
+</Router> 
   );
 }
 
-    // <Router>
-    //   <div className="App">
-    //     <Routes>
-    //       <Route path="/" element={<LandingPage />} />
-    //       <Route path="/phone-auth" element={<PhoneNumberAuthentication />} />
-    //       <Route path="/callhistory" element={<CallHistory />} />
-    //       <Route path="/feedback" element={<FeedbackSurvey />} />
-    //       <Route path="/ending" element={<EndingPage />} />
-    //     </Routes>
-    //   </div>
+
+{/* <FooterLinks width={"100%"} padding={"1.5%"} flex-shrink={"0"}/> */}
+       // <Router>
+    // <div className="App">
+    // <NavHeader overrides={navBarOverrides} />
+    //   <Routes>
+    //   <Route path="/" element={<LandingPage flex={"1"} padding={"4%"} overrides={landingpageOverrides}/>} />
+
+    //   </Routes>
+    //   <FooterLinks width={"100%"} padding={"1.5%"} flex-shrink={"0"}/>
+    // </div>
+
     // </Router>
 {/* <>
       <div className="App">
