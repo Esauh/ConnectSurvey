@@ -1,21 +1,28 @@
 import './App.css';
 import React, { useState, useEffect } from 'react';
 import { Amplify } from 'aws-amplify'
-import { withAuthenticator} from '@aws-amplify/ui-react';
+import { generateClient } from 'aws-amplify/api'
+import { Auth } from 'aws-amplify';
+import { withAuthenticator } from '@aws-amplify/ui-react';
 import AWS from 'aws-sdk';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import {
   LandingPage,
   NavHeader,
   FooterLinks,
+  PhoneNumberAuthentication,
   FeedbackSurvey,
   EndingPage,
-  CallHistoryv1,
+  AllIncidents,
 } from './ui-components';
 import config from './amplifyconfiguration.json';
 import { fetchUserAttributes } from 'aws-amplify/auth';
+import { listAgents, listCustomers, listIncidents, listManagers } from './graphql/queries';
+const client = generateClient();
+
 
 Amplify.configure(config);
+
 
 async function handleFetchUserAttributes() {
   try {
@@ -29,6 +36,8 @@ async function handleFetchUserAttributes() {
 }
 
 function App({ signOut, user }) {
+
+
   const [agents, setAgents] = useState([]);
   const [managers, setManagers] = useState([]);
   const [customers, setCustomers] = useState([]);
@@ -89,6 +98,7 @@ function App({ signOut, user }) {
       console.log('error on fetching managers: ', error)
     }
   }
+
   const [phone_number, setPhoneNumber] = useState('');
 
   useEffect(() => {
@@ -126,14 +136,14 @@ function App({ signOut, user }) {
   }
   return (
     <Router>
-    <div className="App">
+      <div className="App">
       <NavHeader overrides={navBarOverrides} />
-     <Routes>
-       <Route path="/*" element={<LandingPage flex={"1"} padding={"4%"} overrides={landingpageOverrides}/>} />
-       <Route path="/call-history" element={<CallHistoryv1 flex={"1"} padding={"4%"} />} />
-      <Route path="/feedback" element={<FeedbackSurvey />} />
-       <Route path="/ending" element={<EndingPage />} />
-     </Routes>
+        <Routes>
+          <Route path="/*" element={<LandingPage flex={"1"} padding={"4%"} overrides={landingpageOverrides}/>} />
+          <Route path="/callhistory" element={<AllIncidents />} />
+          <Route path="/feedback" element={<FeedbackSurvey />} />
+          <Route path="/ending" element={<EndingPage />} />
+        </Routes>
       </div>
 </Router> 
   );

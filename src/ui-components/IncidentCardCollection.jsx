@@ -14,7 +14,7 @@ import { generateClient } from "aws-amplify/api";
 const nextToken = {};
 const apiCache = {};
 const client = generateClient();
-export default function ResolvedIncidents(props) {
+export default function IncidentCardCollection(props) {
   const { items: itemsProp, overrideItems, overrides, ...rest } = props;
   const [pageIndex, setPageIndex] = React.useState(1);
   const [hasMorePages, setHasMorePages] = React.useState(true);
@@ -49,7 +49,6 @@ export default function ResolvedIncidents(props) {
       setLoading(true);
       const variables = {
         limit: pageSize,
-        filter: { resolved: { eq: true } },
       };
       if (newNext) {
         variables["nextToken"] = newNext;
@@ -85,11 +84,11 @@ export default function ResolvedIncidents(props) {
         isSearchable={true}
         searchPlaceholder="Search..."
         direction="column"
-        justifyContent="left"
+        justifyContent="stretch"
         itemsPerPage={pageSize}
         isPaginated={!isApiPagination && isPaginated}
         items={itemsProp || (loading ? new Array(pageSize).fill({}) : items)}
-        {...getOverrideProps(overrides, "ResolvedIncidents")}
+        {...getOverrideProps(overrides, "IncidentCardCollection")}
         {...rest}
       >
         {(item, index) => {
@@ -99,6 +98,7 @@ export default function ResolvedIncidents(props) {
           return (
             <IncidentCard
               incident={item}
+              agent={item}
               key={item.id}
               {...(overrideItems && overrideItems({ item, index }))}
             ></IncidentCard>

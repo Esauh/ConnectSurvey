@@ -5,7 +5,6 @@
  **************************************************************************/
 
 import * as React from "react";
-import { Agent, Incident } from "../models";
 import { CTASectionProps } from "./CTASection";
 import { ButtonProps, IconProps, SearchFieldProps, SelectFieldProps, TextFieldProps, TextProps, ViewProps } from "@aws-amplify/ui-react";
 export declare type EscapeHatchProps = {
@@ -73,8 +72,8 @@ export declare type CallHistoryv2OverridesProps = {
     SelectField?: PrimitiveOverrideProps<SelectFieldProps>;
 } & EscapeHatchProps;
 export declare type CallHistoryv2Props = React.PropsWithChildren<Partial<ViewProps> & {
-    agent?: Agent;
-    incident?: Incident;
+    agent?: any;
+    incident?: any;
 } & {
     overrides?: CallHistoryv2OverridesProps | undefined | null;
 }>;

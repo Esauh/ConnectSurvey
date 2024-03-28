@@ -5,7 +5,6 @@
  **************************************************************************/
 
 import * as React from "react";
-import { Incident } from "../models";
 import { BadgeProps, ButtonProps, FlexProps, TextProps } from "@aws-amplify/ui-react";
 export declare type EscapeHatchProps = {
     [elementHierarchy: string]: Record<string, unknown>;
@@ -32,7 +31,7 @@ export declare type IncidentCardOverridesProps = {
     Button4080477?: PrimitiveOverrideProps<ButtonProps>;
 } & EscapeHatchProps;
 export declare type IncidentCardProps = React.PropsWithChildren<Partial<FlexProps> & {
-    incident?: Incident;
+    incident?: any;
 } & {
     overrides?: IncidentCardOverridesProps | undefined | null;
 }>;
