@@ -5,7 +5,7 @@
  **************************************************************************/
 
 import * as React from "react";
-import { ButtonProps, FlexProps, IconProps, ImageProps, TextProps, ViewProps } from "@aws-amplify/ui-react";
+import { ButtonProps, FlexProps, ImageProps, TextProps } from "@aws-amplify/ui-react";
 export declare type EscapeHatchProps = {
     [elementHierarchy: string]: Record<string, unknown>;
 } | null;
@@ -18,9 +18,7 @@ export declare type Variant = {
 };
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
 export declare type EndingPageOverridesProps = {
-    EndingPage?: PrimitiveOverrideProps<ViewProps>;
-    "Landing Page"?: PrimitiveOverrideProps<FlexProps>;
-    HeroLayout1?: PrimitiveOverrideProps<FlexProps>;
+    EndingPage?: PrimitiveOverrideProps<FlexProps>;
     Left?: PrimitiveOverrideProps<FlexProps>;
     HeroMessage?: PrimitiveOverrideProps<FlexProps>;
     Message?: PrimitiveOverrideProps<FlexProps>;
@@ -30,15 +28,8 @@ export declare type EndingPageOverridesProps = {
     Button?: PrimitiveOverrideProps<ButtonProps>;
     Right?: PrimitiveOverrideProps<FlexProps>;
     image?: PrimitiveOverrideProps<ImageProps>;
-    Alert?: PrimitiveOverrideProps<FlexProps>;
-    "\uD83D\uDD12Icon39011144"?: PrimitiveOverrideProps<IconProps>;
-    frame?: PrimitiveOverrideProps<FlexProps>;
-    content?: PrimitiveOverrideProps<FlexProps>;
-    heading?: PrimitiveOverrideProps<TextProps>;
-    body?: PrimitiveOverrideProps<TextProps>;
-    "\uD83D\uDD12Icon39011149"?: PrimitiveOverrideProps<IconProps>;
 } & EscapeHatchProps;
-export declare type EndingPageProps = React.PropsWithChildren<Partial<ViewProps> & {
+export declare type EndingPageProps = React.PropsWithChildren<Partial<FlexProps> & {
     overrides?: EndingPageOverridesProps | undefined | null;
 }>;
 export default function EndingPage(props: EndingPageProps): React.ReactElement;

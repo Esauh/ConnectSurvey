@@ -6,10 +6,10 @@
 
 /* eslint-disable */
 import * as React from "react";
-import { getOverrideProps, useNavigateAction } from "./utils";
+import { getOverrideProps } from "./utils";
+import CTASection from "./CTASection";
 import {
   Button,
-  Flex,
   Rating,
   SwitchField,
   Text,
@@ -18,106 +18,78 @@ import {
 } from "@aws-amplify/ui-react";
 export default function FeedbackSurvey(props) {
   const { overrides, ...rest } = props;
-  const buttonThreeEightSixZeroTwoSixTwoTwoOnClick = useNavigateAction({
-    type: "url",
-    url: "/ending",
-  });
-  const buttonThreeEightSixZeroTwoSixTwoThreeOnClick = useNavigateAction({
-    type: "url",
-    url: "/ending",
-  });
   return (
     <View
-      width="1920px"
-      height="1080px"
+      width="1663px"
+      height="1930px"
       display="block"
       gap="unset"
       alignItems="unset"
       justifyContent="unset"
+      overflow="hidden"
       position="relative"
       padding="0px 0px 0px 0px"
       {...getOverrideProps(overrides, "FeedbackSurvey")}
       {...rest}
     >
-      <Flex
+      <CTASection
+        display="flex"
         gap="10px"
         direction="column"
-        width="1920px"
-        height="1080px"
+        width="1386.18px"
+        height="1930px"
         justifyContent="center"
         alignItems="center"
         overflow="hidden"
         position="absolute"
-        top="0px"
-        left="0px"
+        top="0%"
+        bottom="0%"
+        left="16.65%"
+        right="0%"
         padding="160px 160px 160px 160px"
         backgroundColor="rgba(13,26,38,1)"
         {...getOverrideProps(overrides, "CTASection")}
-      ></Flex>
-      <TextAreaField
-        width="786px"
-        height="166px"
-        label="How can we improve our service?"
-        position="absolute"
-        top="631px"
-        left="23px"
-        placeholder="Placeholder"
-        size="large"
-        isDisabled={true}
-        labelHidden={false}
-        variation="default"
-        inputMode=""
-        {...getOverrideProps(overrides, "TextAreaField38602592")}
-      ></TextAreaField>
-      <TextAreaField
-        width="852px"
-        height="166px"
-        label="Do you have any other additional feedback?"
-        position="absolute"
-        top="631px"
-        left="1026px"
-        placeholder="Placeholder"
-        size="large"
-        isDisabled={true}
-        labelHidden={false}
-        variation="default"
-        inputMode=""
-        {...getOverrideProps(overrides, "TextAreaField38602593")}
-      ></TextAreaField>
+      ></CTASection>
       <View
         padding="0px 0px 0px 0px"
-        width="870px"
+        width="908.8px"
         height="41px"
         display="block"
         gap="unset"
         alignItems="unset"
         justifyContent="unset"
         position="absolute"
-        top="540px"
-        left="1026px"
+        top="66.42%"
+        bottom="31.45%"
+        left="32.91%"
+        right="12.44%"
         {...getOverrideProps(overrides, "Group 2")}
       >
         <View
           padding="0px 0px 0px 0px"
-          width="870px"
+          width="908.8px"
           height="41px"
           display="block"
           gap="unset"
           alignItems="unset"
           justifyContent="unset"
           position="absolute"
-          top="0px"
-          left="0px"
-          {...getOverrideProps(overrides, "Group 138602595")}
+          top="0%"
+          bottom="0%"
+          left="0%"
+          right="0%"
+          {...getOverrideProps(overrides, "Group 14037929")}
         >
           <Rating
-            width="227px"
+            width="237.12px"
             height="unset"
             position="absolute"
-            top="0px"
-            left="643px"
+            top="0%"
+            bottom="12.2%"
+            left="73.91%"
+            right="0%"
             size="large"
-            {...getOverrideProps(overrides, "Rating38602596")}
+            {...getOverrideProps(overrides, "Rating4037930")}
           ></Rating>
           <Text
             fontFamily="Inter"
@@ -129,13 +101,15 @@ export default function FeedbackSurvey(props) {
             display="block"
             direction="column"
             justifyContent="unset"
-            width="623.53px"
+            width="651.34px"
             height="36px"
             gap="unset"
             alignItems="unset"
             position="absolute"
-            top="5px"
-            left="0px"
+            top="12.2%"
+            bottom="0%"
+            left="0%"
+            right="28.33%"
             padding="0px 0px 0px 0px"
             whiteSpace="pre-wrap"
             children="Overall what would you rate the quality of your customer service?"
@@ -148,38 +122,44 @@ export default function FeedbackSurvey(props) {
       </View>
       <View
         padding="0px 0px 0px 0px"
-        width="983px"
+        width="1026.84px"
         height="41px"
         display="block"
         gap="unset"
         alignItems="unset"
         justifyContent="unset"
         position="absolute"
-        top="540px"
-        left="23px"
+        top="60.57%"
+        bottom="37.31%"
+        left="30.84%"
+        right="7.41%"
         {...getOverrideProps(overrides, "Group 3")}
       >
         <View
           padding="0px 0px 0px 0px"
-          width="983px"
+          width="1026.84px"
           height="41px"
           display="block"
           gap="unset"
           alignItems="unset"
           justifyContent="unset"
           position="absolute"
-          top="0px"
-          left="0px"
-          {...getOverrideProps(overrides, "Group 138602599")}
+          top="0%"
+          bottom="0%"
+          left="0%"
+          right="0%"
+          {...getOverrideProps(overrides, "Group 14037933")}
         >
           <Rating
-            width="230px"
+            width="240.26px"
             height="unset"
             position="absolute"
-            top="0px"
-            left="753px"
+            top="0%"
+            bottom="12.2%"
+            left="76.6%"
+            right="0%"
             size="large"
-            {...getOverrideProps(overrides, "Rating38602600")}
+            {...getOverrideProps(overrides, "Rating4037934")}
           ></Rating>
           <Text
             fontFamily="Inter"
@@ -191,13 +171,15 @@ export default function FeedbackSurvey(props) {
             display="block"
             direction="column"
             justifyContent="unset"
-            width="785.61px"
+            width="820.65px"
             height="36px"
             gap="unset"
             alignItems="unset"
             position="absolute"
-            top="5px"
-            left="0px"
+            top="12.2%"
+            bottom="0%"
+            left="0%"
+            right="20.08%"
             padding="0px 0px 0px 0px"
             whiteSpace="pre-wrap"
             children="How would you rate the service given by our customer service representative?"
@@ -210,15 +192,17 @@ export default function FeedbackSurvey(props) {
       </View>
       <View
         padding="0px 0px 0px 0px"
-        width="480px"
+        width="499.13px"
         height="67px"
         display="block"
         gap="unset"
         alignItems="unset"
         justifyContent="unset"
         position="absolute"
-        top="191px"
-        left="43px"
+        top="15.39%"
+        bottom="81.14%"
+        left="44.66%"
+        right="25.33%"
         {...getOverrideProps(overrides, "Group 4")}
       >
         <SwitchField
@@ -226,13 +210,15 @@ export default function FeedbackSurvey(props) {
           height="unset"
           label="Yes"
           position="absolute"
-          top="0px"
-          left="378px"
+          top="0%"
+          bottom="31.34%"
+          left="79.56%"
+          right="0%"
           size="large"
           defaultChecked={true}
           isDisabled={false}
           labelPosition="end"
-          {...getOverrideProps(overrides, "SwitchField38602603")}
+          {...getOverrideProps(overrides, "SwitchField4037937")}
         ></SwitchField>
         <Text
           fontFamily="Inter"
@@ -244,13 +230,15 @@ export default function FeedbackSurvey(props) {
           display="block"
           direction="column"
           justifyContent="unset"
-          width="378px"
+          width="394.86px"
           height="67px"
           gap="unset"
           alignItems="unset"
           position="absolute"
-          top="0px"
-          left="0px"
+          top="0%"
+          bottom="0%"
+          left="0%"
+          right="20.89%"
           padding="0px 0px 0px 0px"
           whiteSpace="pre-wrap"
           children="DId the customer service representative resolve your issue? "
@@ -262,15 +250,17 @@ export default function FeedbackSurvey(props) {
       </View>
       <View
         padding="0px 0px 0px 0px"
-        width="480px"
+        width="499.13px"
         height="67px"
         display="block"
         gap="unset"
         alignItems="unset"
         justifyContent="unset"
         position="absolute"
-        top="191px"
-        left="1398px"
+        top="31.09%"
+        bottom="65.44%"
+        left="44.66%"
+        right="25.33%"
         {...getOverrideProps(overrides, "Group 6")}
       >
         <SwitchField
@@ -278,13 +268,15 @@ export default function FeedbackSurvey(props) {
           height="unset"
           label="Yes"
           position="absolute"
-          top="0px"
-          left="378px"
+          top="0%"
+          bottom="31.34%"
+          left="79.56%"
+          right="0%"
           size="large"
           defaultChecked={true}
           isDisabled={false}
           labelPosition="end"
-          {...getOverrideProps(overrides, "SwitchField38602606")}
+          {...getOverrideProps(overrides, "SwitchField4037940")}
         ></SwitchField>
         <Text
           fontFamily="Inter"
@@ -296,13 +288,15 @@ export default function FeedbackSurvey(props) {
           display="block"
           direction="column"
           justifyContent="unset"
-          width="378px"
+          width="394.86px"
           height="67px"
           gap="unset"
           alignItems="unset"
           position="absolute"
-          top="0px"
-          left="0px"
+          top="0%"
+          bottom="0%"
+          left="0%"
+          right="20.89%"
           padding="0px 0px 0px 0px"
           whiteSpace="pre-wrap"
           children="Was your issue resolved in a timely manner?"
@@ -314,29 +308,33 @@ export default function FeedbackSurvey(props) {
       </View>
       <View
         padding="0px 0px 0px 0px"
-        width="480px"
-        height="67px"
+        width="512.9px"
+        height="86px"
         display="block"
         gap="unset"
         alignItems="unset"
         justifyContent="unset"
         position="absolute"
-        top="191px"
-        left="720px"
+        top="23.37%"
+        bottom="72.18%"
+        left="43.97%"
+        right="25.19%"
         {...getOverrideProps(overrides, "Group 5")}
       >
         <SwitchField
-          width="unset"
-          height="unset"
+          width="108.99px"
+          height="59.04px"
           label="Yes"
           position="absolute"
-          top="0px"
-          left="378px"
+          top="0%"
+          bottom="31.34%"
+          left="78.75%"
+          right="0%"
           size="large"
           defaultChecked={true}
           isDisabled={false}
           labelPosition="end"
-          {...getOverrideProps(overrides, "SwitchField38602609")}
+          {...getOverrideProps(overrides, "SwitchField4037943")}
         ></SwitchField>
         <Text
           fontFamily="Inter"
@@ -348,13 +346,15 @@ export default function FeedbackSurvey(props) {
           display="block"
           direction="column"
           justifyContent="unset"
-          width="378px"
-          height="67px"
+          width="403.91px"
+          height="86px"
           gap="unset"
           alignItems="unset"
           position="absolute"
-          top="0px"
-          left="0px"
+          top="0%"
+          bottom="0%"
+          left="0%"
+          right="21.25%"
           padding="0px 0px 0px 0px"
           whiteSpace="pre-wrap"
           children="Was the customer service representative knowledgeable?"
@@ -365,15 +365,17 @@ export default function FeedbackSurvey(props) {
         ></Text>
       </View>
       <View
-        width="480px"
+        width="501.41px"
         height="67px"
         display="block"
         gap="unset"
         alignItems="unset"
         justifyContent="unset"
         position="absolute"
-        top="423px"
-        left="32px"
+        top="28.03%"
+        bottom="68.5%"
+        left="0%"
+        right="69.85%"
         padding="0px 0px 0px 0px"
         {...getOverrideProps(overrides, "Frame")}
       >
@@ -386,8 +388,8 @@ export default function FeedbackSurvey(props) {
           alignItems="unset"
           justifyContent="unset"
           position="absolute"
-          top="-37px"
-          left="0px"
+          top="194px"
+          left="710px"
           {...getOverrideProps(overrides, "Group 7")}
         >
           <SwitchField
@@ -401,7 +403,7 @@ export default function FeedbackSurvey(props) {
             defaultChecked={true}
             isDisabled={false}
             labelPosition="end"
-            {...getOverrideProps(overrides, "SwitchField38602613")}
+            {...getOverrideProps(overrides, "SwitchField4037947")}
           ></SwitchField>
           <Text
             fontFamily="Inter"
@@ -432,15 +434,17 @@ export default function FeedbackSurvey(props) {
       </View>
       <View
         padding="0px 0px 0px 0px"
-        width="480px"
+        width="499.13px"
         height="67px"
         display="block"
         gap="unset"
         alignItems="unset"
         justifyContent="unset"
         position="absolute"
-        top="386px"
-        left="1387px"
+        top="52.54%"
+        bottom="43.99%"
+        left="44.6%"
+        right="25.39%"
         {...getOverrideProps(overrides, "Group 8")}
       >
         <SwitchField
@@ -448,13 +452,15 @@ export default function FeedbackSurvey(props) {
           height="unset"
           label="Yes"
           position="absolute"
-          top="0px"
-          left="378px"
+          top="0%"
+          bottom="31.34%"
+          left="79.56%"
+          right="0%"
           size="large"
           defaultChecked={true}
           isDisabled={false}
           labelPosition="end"
-          {...getOverrideProps(overrides, "SwitchField38602616")}
+          {...getOverrideProps(overrides, "SwitchField4037950")}
         ></SwitchField>
         <Text
           fontFamily="Inter"
@@ -466,13 +472,15 @@ export default function FeedbackSurvey(props) {
           display="block"
           direction="column"
           justifyContent="unset"
-          width="378px"
+          width="394.86px"
           height="67px"
           gap="unset"
           alignItems="unset"
           position="absolute"
-          top="0px"
-          left="0px"
+          top="0%"
+          bottom="0%"
+          left="0%"
+          right="20.89%"
           padding="0px 0px 0px 0px"
           whiteSpace="pre-wrap"
           children="Were you overall satisfied with the customer service provided?"
@@ -484,15 +492,17 @@ export default function FeedbackSurvey(props) {
       </View>
       <View
         padding="0px 0px 0px 0px"
-        width="480px"
+        width="499.13px"
         height="67px"
         display="block"
         gap="unset"
         alignItems="unset"
         justifyContent="unset"
         position="absolute"
-        top="386px"
-        left="709px"
+        top="45.8%"
+        bottom="50.73%"
+        left="44.6%"
+        right="25.39%"
         {...getOverrideProps(overrides, "Group 9")}
       >
         <SwitchField
@@ -500,13 +510,15 @@ export default function FeedbackSurvey(props) {
           height="unset"
           label="Yes"
           position="absolute"
-          top="0px"
-          left="378px"
+          top="0%"
+          bottom="31.34%"
+          left="79.56%"
+          right="0%"
           size="large"
           defaultChecked={true}
           isDisabled={false}
           labelPosition="end"
-          {...getOverrideProps(overrides, "SwitchField38602619")}
+          {...getOverrideProps(overrides, "SwitchField4037953")}
         ></SwitchField>
         <Text
           fontFamily="Inter"
@@ -518,13 +530,15 @@ export default function FeedbackSurvey(props) {
           display="block"
           direction="column"
           justifyContent="unset"
-          width="378px"
+          width="394.86px"
           height="67px"
           gap="unset"
           alignItems="unset"
           position="absolute"
-          top="0px"
-          left="0px"
+          top="0%"
+          bottom="0%"
+          left="0%"
+          right="20.89%"
           padding="0px 0px 0px 0px"
           whiteSpace="pre-wrap"
           children="Did the customer service representative make you feel valued? "
@@ -546,49 +560,66 @@ export default function FeedbackSurvey(props) {
         direction="column"
         justifyContent="unset"
         textDecoration="underline"
-        width="909px"
-        height="125px"
+        width="931.78px"
+        height="115px"
         gap="unset"
         alignItems="unset"
         position="absolute"
-        top="66px"
-        left="506px"
+        top="6.94%"
+        bottom="87.1%"
+        left="30.84%"
+        right="13.13%"
         padding="0px 0px 0px 0px"
         whiteSpace="pre-wrap"
         children="Feedback Survey"
         {...getOverrideProps(overrides, "Feedback Survey")}
       ></Text>
-      <Button
-        width="786px"
-        height="98px"
+      <View
+        width="104.46px"
+        height="100px"
+        display="block"
+        gap="unset"
+        alignItems="unset"
+        justifyContent="unset"
+        overflow="hidden"
         position="absolute"
-        top="953px"
-        left="23px"
+        top="14.51%"
+        bottom="80.31%"
+        left="16.65%"
+        right="77.07%"
+        padding="0px 0px 0px 0px"
+        {...getOverrideProps(overrides, "Frame 2")}
+      ></View>
+      <TextAreaField
+        width="838.81px"
+        height="184px"
+        label="How can we improve our service?"
+        position="absolute"
+        top="72.12%"
+        bottom="18.34%"
+        left="32.91%"
+        right="16.65%"
+        placeholder="Placeholder"
+        size="large"
+        isDisabled={true}
+        labelHidden={false}
+        variation="default"
+        {...getOverrideProps(overrides, "TextAreaField")}
+      ></TextAreaField>
+      <Button
+        width="855.53px"
+        height="142px"
+        position="absolute"
+        top="82.8%"
+        bottom="9.84%"
+        left="32.66%"
+        right="15.89%"
         backgroundColor="rgba(67,168,84,1)"
         size="large"
         isDisabled={false}
         variation="primary"
         children="Submit Feedback!"
-        onClick={() => {
-          buttonThreeEightSixZeroTwoSixTwoTwoOnClick();
-        }}
-        {...getOverrideProps(overrides, "Button38602622")}
-      ></Button>
-      <Button
-        width="852px"
-        height="98px"
-        position="absolute"
-        top="953px"
-        left="1026px"
-        backgroundColor="rgba(191,64,191,1)"
-        size="large"
-        isDisabled={false}
-        variation="primary"
-        children="If you wish to leave an audio recording as feedback click here to do"
-        onClick={() => {
-          buttonThreeEightSixZeroTwoSixTwoThreeOnClick();
-        }}
-        {...getOverrideProps(overrides, "Button38602623")}
+        {...getOverrideProps(overrides, "Button")}
       ></Button>
     </View>
   );
