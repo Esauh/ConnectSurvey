@@ -10,10 +10,7 @@ import { getOverrideProps, useNavigateAction } from "./utils";
 import { Button, Flex, Image, Text } from "@aws-amplify/ui-react";
 export default function LandingPage(props) {
   const { overrides, ...rest } = props;
-  const buttonOnClick = useNavigateAction({
-    type: "url",
-    url: "/call-history",
-  });
+  const buttonOnClick = useNavigateAction({ type: "url", url: "/callhistory" });
   return (
     <Flex
       gap="0"

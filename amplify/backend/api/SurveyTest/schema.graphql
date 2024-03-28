@@ -2,12 +2,16 @@ type Incident @model @auth(rules: [{allow: public}]) {
   id: ID!
   customerID: ID! @index(name: "byCustomer")
   agentID: ID! @index(name: "byAgent")
-  time: AWSTime!
-  date: AWSDate!
+  callStartTime: AWSTime
+  startDate: AWSDate
   incidentDetails: String!
   escalate: Boolean!
   resolutionDetails: String
   summary: String
+  endDate: AWSDate
+  callResponseTime: AWSTime
+  resolved: Boolean
+  agentName: String
 }
 
 type Agent @model @auth(rules: [{allow: public}]) {
@@ -33,4 +37,5 @@ type Manager @model @auth(rules: [{allow: public}]) {
   email: AWSEmail!
   phone: AWSPhone!
   Agents: [Agent] @hasMany(indexName: "byManager", fields: ["id"])
-} 
+}
+ 

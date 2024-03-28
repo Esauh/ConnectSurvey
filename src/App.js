@@ -29,6 +29,66 @@ async function handleFetchUserAttributes() {
 }
 
 function App({ signOut, user }) {
+  const [agents, setAgents] = useState([]);
+  const [managers, setManagers] = useState([]);
+  const [customers, setCustomers] = useState([]);
+  const [incidents, setIncidents] = useState([]);
+
+  useEffect(() => {
+    fetchAgents();
+  }, []);
+
+  useEffect(() => {
+    fetchManagers();
+  }, []);
+
+  useEffect(() => {
+    fetchCustomers();
+  }, []);
+
+  useEffect(() => {
+    fetchIncidents();
+  }, []);
+
+  const fetchIncidents = async () => {
+    try {
+      const incidentData = await client.graphql({ query: listIncidents });
+      const incidentList = incidentData.data.listIncidents.items;
+      setIncidents([incidentList]);
+    } catch (error) {
+      console.log('error on fetching incidents: ', error)
+    }
+  }
+
+  const fetchAgents = async () => {
+    try {
+      const agentData = await client.graphql({ query: listAgents });
+      const agentList = agentData.data.listAgents.items;
+      setAgents([agentList]);
+    } catch (error) {
+      console.log('error on fetching agents: ', error)
+    }
+  }
+
+  const fetchCustomers = async () => {
+    try {
+      const customerData = await client.graphql({ query: listCustomers });
+      const customerList = customerData.data.listCustomers.items;
+      setCustomers([customerList]);
+    } catch (error) {
+      console.log('error on fetching customers: ', error)
+    }
+  }
+
+  const fetchManagers = async () => {
+    try {
+      const managerData = await client.graphql({ query: listManagers });
+      const managerList = managerData.data.listManagers.items;
+      setManagers([managerList]);
+    } catch (error) {
+      console.log('error on fetching managers: ', error)
+    }
+  }
   const [phone_number, setPhoneNumber] = useState('');
 
   useEffect(() => {

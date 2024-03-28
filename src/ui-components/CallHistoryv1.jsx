@@ -165,7 +165,7 @@ export default function CallHistoryv1(props) {
               left="212px"
               padding="0px 0px 0px 0px"
               whiteSpace="pre-wrap"
-              children={incident?.time}
+              children={`${"Time: "}${incident?.callStartTime}`}
               {...getOverrideProps(overrides, "Incident Time3990204")}
             ></Text>
             <Text
@@ -621,7 +621,7 @@ export default function CallHistoryv1(props) {
               left="212px"
               padding="0px 0px 0px 0px"
               whiteSpace="pre-wrap"
-              children={incident?.time}
+              children={`${"Time: "}${incident?.callStartTime}`}
               {...getOverrideProps(overrides, "Incident Time3987234")}
             ></Text>
             <Text
@@ -644,7 +644,7 @@ export default function CallHistoryv1(props) {
               left="37px"
               padding="0px 0px 0px 0px"
               whiteSpace="pre-wrap"
-              children={incident?.date}
+              children={`${"Date: "}${incident?.startDate}`}
               {...getOverrideProps(overrides, "Incident Date3987233")}
             ></Text>
             <Text
