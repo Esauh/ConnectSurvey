@@ -1,7 +1,6 @@
 import './App.css';
 import React, { useState, useEffect } from 'react';
 import { Amplify } from 'aws-amplify'
-import { Auth } from 'aws-amplify';
 import { withAuthenticator} from '@aws-amplify/ui-react';
 import AWS from 'aws-sdk';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
@@ -9,13 +8,11 @@ import {
   LandingPage,
   NavHeader,
   FooterLinks,
-  PhoneNumberAuthentication,
   FeedbackSurvey,
   EndingPage,
   CallHistoryv1,
 } from './ui-components';
 import config from './amplifyconfiguration.json';
-import { getCurrentUser } from 'aws-amplify/auth';
 import { fetchUserAttributes } from 'aws-amplify/auth';
 
 Amplify.configure(config);
@@ -52,6 +49,10 @@ function App({ signOut, user }) {
 
     "NavHeader": {
       justifyContent: "space-around"
+    },
+
+    "Landing Page": {
+      children: "Home"
     }
   }
 
@@ -68,7 +69,7 @@ function App({ signOut, user }) {
     <div className="App">
       <NavHeader overrides={navBarOverrides} />
      <Routes>
-       <Route path="/landingpage" element={<LandingPage flex={"1"} padding={"4%"} overrides={landingpageOverrides}/>} />
+       <Route path="/*" element={<LandingPage flex={"1"} padding={"4%"} overrides={landingpageOverrides}/>} />
        <Route path="/call-history" element={<CallHistoryv1 flex={"1"} padding={"4%"} />} />
       <Route path="/feedback" element={<FeedbackSurvey />} />
        <Route path="/ending" element={<EndingPage />} />
