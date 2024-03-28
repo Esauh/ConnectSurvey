@@ -6,10 +6,26 @@
 
 /* eslint-disable */
 import * as React from "react";
-import { getOverrideProps } from "./utils";
+import { getOverrideProps, useNavigateAction } from "./utils";
 import { Flex, Text } from "@aws-amplify/ui-react";
 export default function FooterLinks(props) {
   const { overrides, ...rest } = props;
+  const landingPageOnClick = useNavigateAction({
+    type: "url",
+    url: "landingpage",
+  });
+  const recentCallsOnClick = useNavigateAction({
+    type: "url",
+    url: "callhistory",
+  });
+  const contactOnClick = useNavigateAction({
+    type: "url",
+    url: "https://github.com/Esauh/ConnectSurvey",
+  });
+  const githubOnClick = useNavigateAction({
+    type: "url",
+    url: "https://github.com/Esauh/ConnectSurvey",
+  });
   return (
     <Flex
       gap="32px"
@@ -139,6 +155,9 @@ export default function FooterLinks(props) {
             padding="0px 0px 0px 0px"
             whiteSpace="pre-wrap"
             children="Landing Page "
+            onClick={() => {
+              landingPageOnClick();
+            }}
             {...getOverrideProps(overrides, "Landing Page")}
           ></Text>
           <Text
@@ -161,6 +180,9 @@ export default function FooterLinks(props) {
             padding="0px 0px 0px 0px"
             whiteSpace="pre-wrap"
             children="Recent Calls"
+            onClick={() => {
+              recentCallsOnClick();
+            }}
             {...getOverrideProps(overrides, "Recent Calls")}
           ></Text>
         </Flex>
@@ -218,6 +240,9 @@ export default function FooterLinks(props) {
             padding="0px 0px 0px 0px"
             whiteSpace="pre-wrap"
             children="Contact"
+            onClick={() => {
+              contactOnClick();
+            }}
             {...getOverrideProps(overrides, "Contact")}
           ></Text>
           <Text
@@ -240,6 +265,9 @@ export default function FooterLinks(props) {
             padding="0px 0px 0px 0px"
             whiteSpace="pre-wrap"
             children="Github "
+            onClick={() => {
+              githubOnClick();
+            }}
             {...getOverrideProps(overrides, "Github")}
           ></Text>
         </Flex>

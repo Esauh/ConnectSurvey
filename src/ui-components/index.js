@@ -26,4 +26,5 @@ export { default as NavHeader } from "./NavHeader";
 export { default as PhoneNumberAuthentication } from "./PhoneNumberAuthentication";
 export { default as ResolvedIncidents } from "./ResolvedIncidents";
 export { default as UnresolvedIncidents } from "./UnresolvedIncidents";
+export { default as UpdatedFeedback } from "./UpdatedFeedback";
 export { default as studioTheme } from "./studioTheme";

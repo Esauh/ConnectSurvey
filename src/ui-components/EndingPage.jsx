@@ -6,10 +6,11 @@
 
 /* eslint-disable */
 import * as React from "react";
-import { getOverrideProps } from "./utils";
+import { getOverrideProps, useNavigateAction } from "./utils";
 import { Button, Flex, Image, Text } from "@aws-amplify/ui-react";
 export default function EndingPage(props) {
   const { overrides, ...rest } = props;
+  const buttonOnClick = useNavigateAction({ type: "url", url: "callhistory" });
   return (
     <Flex
       gap="0"
@@ -142,6 +143,9 @@ export default function EndingPage(props) {
           isDisabled={false}
           variation="primary"
           children="Go Back to Call History"
+          onClick={() => {
+            buttonOnClick();
+          }}
           {...getOverrideProps(overrides, "Button")}
         ></Button>
       </Flex>
@@ -173,6 +177,7 @@ export default function EndingPage(props) {
           position="relative"
           padding="0px 0px 0px 0px"
           objectFit="unset"
+          src="https://media.istockphoto.com/id/1391352876/vector/thank-you-colorful-typography-banner.jpg?s=612x612&w=0&k=20&c=jzm-E-RXHtLDQNxs_8RNe_388gbl7t7dEsYuyC0xtF8="
           {...getOverrideProps(overrides, "image")}
         ></Image>
       </Flex>

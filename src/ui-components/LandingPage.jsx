@@ -176,6 +176,7 @@ export default function LandingPage(props) {
           position="relative"
           padding="0px 0px 0px 0px"
           objectFit="unset"
+          src="https://t3.ftcdn.net/jpg/03/76/66/16/360_F_376661672_OUk4ws66zUuVkOsb9hnbC5Mcg1NjrCI6.jpg"
           {...getOverrideProps(overrides, "image")}
         ></Image>
       </Flex>

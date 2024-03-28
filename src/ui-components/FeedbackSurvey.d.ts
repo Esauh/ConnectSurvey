@@ -21,6 +21,9 @@ export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes
 export declare type FeedbackSurveyOverridesProps = {
     FeedbackSurvey?: PrimitiveOverrideProps<ViewProps>;
     CTASection?: CTASectionProps;
+    "Group 7"?: PrimitiveOverrideProps<ViewProps>;
+    SwitchField4095287?: PrimitiveOverrideProps<SwitchFieldProps>;
+    "Was it easy to contact and get a hold of a customer service representative?"?: PrimitiveOverrideProps<TextProps>;
     "Group 2"?: PrimitiveOverrideProps<ViewProps>;
     "Group 14037929"?: PrimitiveOverrideProps<ViewProps>;
     Rating4037930?: PrimitiveOverrideProps<RatingProps>;
@@ -38,10 +41,6 @@ export declare type FeedbackSurveyOverridesProps = {
     "Group 5"?: PrimitiveOverrideProps<ViewProps>;
     SwitchField4037943?: PrimitiveOverrideProps<SwitchFieldProps>;
     "Was the customer service representative knowledgeable?"?: PrimitiveOverrideProps<TextProps>;
-    Frame?: PrimitiveOverrideProps<ViewProps>;
-    "Group 7"?: PrimitiveOverrideProps<ViewProps>;
-    SwitchField4037947?: PrimitiveOverrideProps<SwitchFieldProps>;
-    "Was it easy to contact and get a hold of a customer service representative?"?: PrimitiveOverrideProps<TextProps>;
     "Group 8"?: PrimitiveOverrideProps<ViewProps>;
     SwitchField4037950?: PrimitiveOverrideProps<SwitchFieldProps>;
     "Were you overall satisfied with the customer service provided?"?: PrimitiveOverrideProps<TextProps>;
@@ -49,7 +48,6 @@ export declare type FeedbackSurveyOverridesProps = {
     SwitchField4037953?: PrimitiveOverrideProps<SwitchFieldProps>;
     "Did the customer service representative make you feel valued?"?: PrimitiveOverrideProps<TextProps>;
     "Feedback Survey"?: PrimitiveOverrideProps<TextProps>;
-    "Frame 2"?: PrimitiveOverrideProps<ViewProps>;
     TextAreaField?: PrimitiveOverrideProps<TextAreaFieldProps>;
     Button?: PrimitiveOverrideProps<ButtonProps>;
 } & EscapeHatchProps;

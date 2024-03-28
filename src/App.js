@@ -4,14 +4,14 @@ import { Amplify } from 'aws-amplify'
 import { generateClient } from 'aws-amplify/api'
 import { Auth } from 'aws-amplify';
 import { withAuthenticator } from '@aws-amplify/ui-react';
-import AWS from 'aws-sdk';
+import AWS, { AutoScaling } from 'aws-sdk';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import {
   LandingPage,
   NavHeader,
   FooterLinks,
   PhoneNumberAuthentication,
-  FeedbackSurvey,
+  UpdatedFeedback,
   EndingPage,
   AllIncidents,
 } from './ui-components';
@@ -114,7 +114,7 @@ function App({ signOut, user }) {
 
   const navBarOverrides ={
     "User": {
-      children: user.username.toUpperCase()
+      children: ""
     },
 
     "NavHeader": {
@@ -125,15 +125,35 @@ function App({ signOut, user }) {
       children: "Home"
     }
   }
+  const usr = user.username;
+  const displayname = user.username[0].toUpperCase() + usr.slice(1)
 
   const landingpageOverrides = {
-  "image":{
-    "src": "https://repository-images.githubusercontent.com/137706509/3fee5180-7390-11eb-9c93-dcaf1f7c6567"
-  },
-  "Left":{
-    "width": "65%"
-  },
-  }
+    "image":{
+      "src": "https://t3.ftcdn.net/jpg/03/76/66/16/360_F_376661672_OUk4ws66zUuVkOsb9hnbC5Mcg1NjrCI6.jpg"
+    },
+    "Left":{
+      "width": "65%"
+    },
+    "Heading":{
+     children: "Welcome " + displayname + "!"
+    },
+    "Body":{
+      children: "Thank you for creating an account and singing in. This app allows you to leave detailed feedback on your recent AWS Connect powered customer service interactions"
+    },
+    "LandingPage":{
+      width: "auto",
+      length: "auto"
+    }
+    }
+    const endingpageOverrides = {
+      "UpdatedFeedback":{
+        width: "auto",
+        height: "auto",
+        padding: "1%"
+      }
+    }
+  
   return (
     <Router>
       <div className="App">
@@ -141,9 +161,10 @@ function App({ signOut, user }) {
         <Routes>
           <Route path="/*" element={<LandingPage flex={"1"} padding={"4%"} overrides={landingpageOverrides}/>} />
           <Route path="/callhistory" element={<AllIncidents />} />
-          <Route path="/feedback" element={<FeedbackSurvey />} />
-          <Route path="/ending" element={<EndingPage />} />
+          <Route path="/feedback" element={<UpdatedFeedback />} />
+          <Route path="/ending" element={<EndingPage flex={"1"} padding={"1%"} overrides={endingpageOverrides} />} />
         </Routes>
+        <FooterLinks width={"100%"} padding={"1.5%"} flex-shrink={"0"}/>
       </div>
 </Router> 
   );

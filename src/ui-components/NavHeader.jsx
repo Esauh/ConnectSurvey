@@ -18,6 +18,14 @@ export default function NavHeader(props) {
     type: "url",
     url: "LandingPage",
   });
+  const recentCallsOnClick = useNavigateAction({
+    type: "url",
+    url: "/callhistory",
+  });
+  const contactUsOnClick = useNavigateAction({
+    type: "url",
+    url: "https://github.com/Esauh/ConnectSurvey",
+  });
   const buttonOnClick = useAuthSignOutAction({ global: false });
   return (
     <Flex
@@ -89,6 +97,9 @@ export default function NavHeader(props) {
           padding="0px 0px 0px 0px"
           whiteSpace="pre-wrap"
           children="Recent Calls"
+          onClick={() => {
+            recentCallsOnClick();
+          }}
           {...getOverrideProps(overrides, "Recent Calls")}
         ></Text>
         <Text
@@ -110,6 +121,9 @@ export default function NavHeader(props) {
           padding="0px 0px 0px 0px"
           whiteSpace="pre-wrap"
           children="Contact Us"
+          onClick={() => {
+            contactUsOnClick();
+          }}
           {...getOverrideProps(overrides, "Contact Us")}
         ></Text>
       </Flex>
