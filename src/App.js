@@ -18,11 +18,13 @@ import {
 import config from './amplifyconfiguration.json';
 import { fetchUserAttributes } from 'aws-amplify/auth';
 import { listAgents, listCustomers, listIncidents, listManagers } from './graphql/queries';
+import RecentCalls from "/Users/v.esau.hutcherson/ConnectSurvey/survey-app/src/components/calls/RecentCalls.js"
+
 const client = generateClient();
 
 
 Amplify.configure(config);
-
+const Connect = new AWS.Connect();
 
 async function handleFetchUserAttributes() {
   try {
@@ -36,6 +38,45 @@ async function handleFetchUserAttributes() {
 }
 
 function App({ signOut, user }) {
+  const [recentCalls, setRecentCalls] = useState([]);
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const maxDurationInWeeks = 7;
+        const currentTime = new Date();
+        const startTime = new Date(currentTime.getTime() - maxDurationInWeeks * 7 * 24 * 60 * 60 * 1000).toISOString();
+        const endTime = currentTime.toISOString();
+        
+        const user = await fetchUserAttributes();
+        const phoneNumber = user.phone_number;
+
+        const result = await Connect.searchContacts({
+          InstanceId:"9e272066-96ec-42ed-8b95-481f179803a8",
+          SearchableContactAttributes: {
+            Criteria: [
+              {
+                Key: "Attributes",
+                Values: [phoneNumber]
+              }
+            ],
+            MatchType: "MATCH_ANY"
+          },
+          TimeRange: {
+            StartTime: startTime, 
+            EndTime: endTime,
+            Type: "INITIATION_TIMESTAMP"
+          }
+        });
+
+        setRecentCalls(result);
+        console.log(result)
+      } catch (error) {
+        console.error('Error fetching recent calls:', error);
+      }
+    }
+
+    fetchData();
+  }, []);
 
 
   const [agents, setAgents] = useState([]);
@@ -144,6 +185,9 @@ function App({ signOut, user }) {
     "LandingPage":{
       width: "auto",
       length: "auto"
+    },
+    "Eyebrow":{
+      fontSize: "24px"
     }
     }
     const endingpageOverrides = {
