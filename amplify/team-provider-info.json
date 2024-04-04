@@ -1,0 +1,24 @@
+{
+  "staging": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-surveytest-staging-171903-authRole",
+      "UnauthRoleArn": "arn:aws:iam::910227969302:role/amplify-surveytest-staging-171903-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::910227969302:role/amplify-surveytest-staging-171903-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-surveytest-staging-171903-deployment",
+      "UnauthRoleName": "amplify-surveytest-staging-171903-unauthRole",
+      "StackName": "amplify-surveytest-staging-171903",
+      "StackId": "arn:aws:cloudformation:us-east-1:910227969302:stack/amplify-surveytest-staging-171903/d52574b0-c05c-11ee-a5ee-127333bd656b",
+      "AmplifyAppId": "dcahqahp9ncf0"
+    },
+    "categories": {
+      "auth": {
+        "surveytest6a2e08b1": {},
+        "SurveyTest": {}
+      },
+      "storage": {
+        "surveystorage": {}
+      }
+    }
+  }
+}
