@@ -9,7 +9,7 @@ import * as React from "react";
 import { getOverrideProps, useNavigateAction } from "./utils";
 import { Badge, Button, Flex, Text } from "@aws-amplify/ui-react";
 export default function IncidentCard(props) {
-  const { incident, overrides, ...rest } = props;
+  const { incident, customer, overrides, ...rest } = props;
   const buttonFourZeroEightZeroFourSevenSixOnClick = useNavigateAction({
     type: "url",
     url: "/feedback",
@@ -109,7 +109,7 @@ export default function IncidentCard(props) {
             position="relative"
             padding="0px 0px 0px 0px"
             whiteSpace="pre-wrap"
-            children={incident?.agentName}
+            children={`${"Agent: "}${incident?.agentName}`}
             {...getOverrideProps(overrides, "Agent Name")}
           ></Text>
           <Text

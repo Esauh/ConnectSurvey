@@ -12,6 +12,7 @@ export { default as CallHistoryv2 } from "./CallHistoryv2";
 export { default as CustomerCreateForm } from "./CustomerCreateForm";
 export { default as CustomerUpdateForm } from "./CustomerUpdateForm";
 export { default as EndingPage } from "./EndingPage";
+export { default as EndingPagev1 } from "./EndingPagev1";
 export { default as FeedbackError } from "./FeedbackError";
 export { default as FeedbackSuccess } from "./FeedbackSuccess";
 export { default as FeedbackSurvey } from "./FeedbackSurvey";

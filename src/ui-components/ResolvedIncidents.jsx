@@ -85,6 +85,7 @@ export default function ResolvedIncidents(props) {
         isSearchable={true}
         searchPlaceholder="Search..."
         direction="column"
+        alignItems="stretch"
         justifyContent="left"
         itemsPerPage={pageSize}
         isPaginated={!isApiPagination && isPaginated}
