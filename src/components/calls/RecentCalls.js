@@ -1,11 +1,65 @@
+import React, { useState, useEffect } from 'react';
+import { ConnectClient, SearchContactsCommand } from "@aws-sdk/client-connect";
 
-const RecentCalls = ({ recentCalls }) => {
+const creds = {
+  accessKeyId: 'AKIA5H3OQSULEAJNR3KW',
+  secretAccessKey: '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',
+}
+const Connect = new ConnectClient({
+  region: "us-east-1",
+  credentials: creds
+});
+
+const RecentCalls = ({ user }) => {
+  const [recentcalls, setRecentCalls] = useState([]);
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const maxDurationInWeeks = 7;
+        const currentTime = new Date();
+        const startTime = new Date(currentTime - maxDurationInWeeks * 7 * 24 * 60 * 60 * 1000);
+        const endTime = currentTime;
+        
+        const phoneNumber = user.phone_number;
+        const input = {
+          InstanceId: "9e272066-96ec-42ed-8b95-481f179803a8", //Amazon Connect instance 
+          // SearchCriteria:{
+          //   SearchableContactAttributes: { 
+          //     Criteria: [ 
+          //       { 
+          //         Key: "Phone Number", 
+          //         Values: [phoneNumber],
+          //       },
+          //     ],
+          //     MatchType: "MATCH_ANY"
+          //   }},
+          TimeRange: {
+            StartTime: startTime,
+            EndTime: endTime,
+            Type: "INITIATION_TIMESTAMP"
+        },
+        Sort: { 
+          FieldName: "INITIATION_TIMESTAMP",
+          Order: "ASCENDING"
+        },
+      };
+        const command = new SearchContactsCommand(input);
+        const response = await Connect.send(command);
+        setRecentCalls(response.Contacts);
+        console.log(response)
+      } catch (error) {
+        console.error('Error fetching recent calls:', error);
+      }
+    }
+
+    fetchData();
+  }, [user.phone_number]);
   return (
     <div>
-      <h1>Call History</h1>
+      <h1>Call History: ConnectTest</h1>
       <ul>
-        {recentCalls.map(call => (
-          <li key={call.contactId}>{call.phoneNumber}</li>
+        {recentcalls.map(call => (
+          <li key={call.Id}>{call.Arn}</li>
           // Render other contact fields as needed
         ))}
       </ul>

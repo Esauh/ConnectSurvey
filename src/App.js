@@ -18,21 +18,21 @@ import {
 import config from './amplifyconfiguration.json';
 import { fetchUserAttributes } from 'aws-amplify/auth';
 import { listAgents, listCustomers, listIncidents, listManagers } from './graphql/queries';
-import RecentCalls from "/Users/v.esau.hutcherson/ConnectSurvey/survey-app/src/components/calls/RecentCalls.js"
+import RecentCalls from "./components/calls/RecentCalls.js"
 import { ConnectClient, SearchContactsCommand } from "@aws-sdk/client-connect";
 import SurveyComponent from './components/survey/SurveyComponent';
 
 const client = generateClient();
 Amplify.configure(config);
 
-const creds = {
-  accessKeyId: 'AKIA5H3OQSULEAJNR3KW',
-  secretAccessKey: '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',
-}
-const Connect = new ConnectClient({
-  region: "us-east-1",
-  credentials: creds
-});
+// const creds = {
+//   accessKeyId: 'AKIA5H3OQSULEAJNR3KW',
+//   secretAccessKey: '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',
+// }
+// const Connect = new ConnectClient({
+//   region: "us-east-1",
+//   credentials: creds
+// });
 
 async function handleFetchUserAttributes() {
   try {
@@ -46,50 +46,50 @@ async function handleFetchUserAttributes() {
 }
 
 function App({ signOut, user }) {
-  const [recentCalls, setRecentCalls] = useState([]);
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        const maxDurationInWeeks = 7;
-        const currentTime = new Date();
-        const startTime = new Date(currentTime - maxDurationInWeeks * 7 * 24 * 60 * 60 * 1000);
-        const endTime = currentTime;
+  // const [recentCalls, setRecentCalls] = useState([]);
+  // useEffect(() => {
+  //   async function fetchData() {
+  //     try {
+  //       const maxDurationInWeeks = 7;
+  //       const currentTime = new Date();
+  //       const startTime = new Date(currentTime - maxDurationInWeeks * 7 * 24 * 60 * 60 * 1000);
+  //       const endTime = currentTime;
         
-        const user = await fetchUserAttributes();
-        const phoneNumber = user.phone_number;
-        const input = {
-          InstanceId: "9e272066-96ec-42ed-8b95-481f179803a8", //Amazon Connect instance 
-          // SearchCriteria:{
-          //   SearchableContactAttributes: { 
-          //     Criteria: [ 
-          //       { 
-          //         Key: "Phone Number", 
-          //         Values: ["+14042420001"],
-          //       },
-          //     ],
-          //     MatchType: "MATCH_ANY"
-          //   }},
-          TimeRange: {
-            StartTime: startTime,
-            EndTime: endTime,
-            Type: "INITIATION_TIMESTAMP"
-        },
-        Sort: { 
-          FieldName: "INITIATION_TIMESTAMP",
-          Order: "ASCENDING"
-        },
-      };
-        const command = new SearchContactsCommand(input);
-        const response = await Connect.send(command);
-        setRecentCalls(response);
-        console.log(response)
-      } catch (error) {
-        console.error('Error fetching recent calls:', error);
-      }
-    }
+  //       const user = await fetchUserAttributes();
+  //       const phoneNumber = user.phone_number;
+  //       const input = {
+  //         InstanceId: "9e272066-96ec-42ed-8b95-481f179803a8", //Amazon Connect instance 
+  //         // SearchCriteria:{
+  //         //   SearchableContactAttributes: { 
+  //         //     Criteria: [ 
+  //         //       { 
+  //         //         Key: "Phone Number", 
+  //         //         Values: ["+14042420001"],
+  //         //       },
+  //         //     ],
+  //         //     MatchType: "MATCH_ANY"
+  //         //   }},
+  //         TimeRange: {
+  //           StartTime: startTime,
+  //           EndTime: endTime,
+  //           Type: "INITIATION_TIMESTAMP"
+  //       },
+  //       Sort: { 
+  //         FieldName: "INITIATION_TIMESTAMP",
+  //         Order: "ASCENDING"
+  //       },
+  //     };
+  //       const command = new SearchContactsCommand(input);
+  //       const response = await Connect.send(command);
+  //       setRecentCalls(response);
+  //       console.log(response)
+  //     } catch (error) {
+  //       console.error('Error fetching recent calls:', error);
+  //     }
+  //   }
 
-    fetchData();
-  }, []);
+  //   fetchData();
+  // }, []);
 
 
   const [agents, setAgents] = useState([]);
@@ -217,7 +217,7 @@ function App({ signOut, user }) {
       <NavHeader overrides={navBarOverrides} />
         <Routes>
           <Route path="/*" element={<LandingPage flex={"1"} padding={"4%"} overrides={landingpageOverrides}/>} />
-          <Route path="/callhistory" element={<AllIncidents />} />
+          <Route path="/callhistory" element={<RecentCalls user={user} />} />
           <Route path="/feedback" element={<SurveyComponent />} />
           <Route path="/ending" element={<EndingPage flex={"1"} padding={"1%"} overrides={endingpageOverrides} />} />
         </Routes>
