@@ -20,6 +20,7 @@ import { fetchUserAttributes } from 'aws-amplify/auth';
 import { listAgents, listCustomers, listIncidents, listManagers } from './graphql/queries';
 import RecentCalls from "/Users/v.esau.hutcherson/ConnectSurvey/survey-app/src/components/calls/RecentCalls.js"
 import { ConnectClient, SearchContactsCommand } from "@aws-sdk/client-connect";
+import SurveyComponent from './components/survey/SurveyComponent';
 
 const client = generateClient();
 Amplify.configure(config);
@@ -218,7 +219,7 @@ function App({ signOut, user }) {
         <Routes>
           <Route path="/*" element={<LandingPage flex={"1"} padding={"4%"} overrides={landingpageOverrides}/>} />
           <Route path="/callhistory" element={<AllIncidents />} />
-          <Route path="/feedback" element={<UpdatedFeedback />} />
+          <Route path="/feedback" element={<SurveyComponent />} />
           <Route path="/ending" element={<EndingPage flex={"1"} padding={"1%"} overrides={endingpageOverrides} />} />
         </Routes>
         <FooterLinks width={"100%"} padding={"1.5%"} flex-shrink={"0"}/>
