@@ -59,16 +59,16 @@ function App({ signOut, user }) {
         const phoneNumber = user.phone_number;
         const input = {
           InstanceId: "9e272066-96ec-42ed-8b95-481f179803a8", //Amazon Connect instance 
-          SearchCriteria:{
-            SearchableContactAttributes: { 
-              Criteria: [ 
-                { 
-                  Key: "Phone Number", 
-                  Values: ["+14042420001"],
-                },
-              ],
-              MatchType: "MATCH_ANY"
-            }},
+          // SearchCriteria:{
+          //   SearchableContactAttributes: { 
+          //     Criteria: [ 
+          //       { 
+          //         Key: "Phone Number", 
+          //         Values: ["+14042420001"],
+          //       },
+          //     ],
+          //     MatchType: "MATCH_ANY"
+          //   }},
           TimeRange: {
             StartTime: startTime,
             EndTime: endTime,
@@ -87,8 +87,7 @@ function App({ signOut, user }) {
         console.error('Error fetching recent calls:', error);
       }
     }
-/*
-*/
+
     fetchData();
   }, []);
 
