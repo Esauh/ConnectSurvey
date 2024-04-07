@@ -56,14 +56,21 @@ const RecentCalls = ({ user }) => {
   }, [user.phone_number]);
   return (
     <div>
-      <h1>Call History: ConnectTest</h1>
-      <ul>
-        {recentcalls.map(call => (
-          <li key={call.Id}>{call.Arn}</li>
-          // Render other contact fields as needed
-        ))}
-      </ul>
+    <h1>Call History: ConnectTest</h1>
+    <div className="card-container">
+      {recentcalls.map(contact => (
+        <div key={contact.Id} className="card">
+          <h2>Contact Info</h2>
+          <p><strong>Date:</strong> {contact.AgentInfo.Id}</p>
+          <p><strong>Contact ID:</strong> {contact.Id}</p>
+          <p><strong>Channel:</strong> {contact.Channel}</p>
+          {/* Render other AgentInfo properties here */}
+          <p><strong>Agent ID:</strong> {contact.AgentInfo.Id ? contact.AgentInfo.AgentId : 'N/A'}</p>
+          {/* Add more properties as needed */}
+        </div>
+      ))}
     </div>
+  </div>
   );
 };
 

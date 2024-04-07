@@ -217,7 +217,7 @@ function App({ signOut, user }) {
       <NavHeader overrides={navBarOverrides} />
         <Routes>
           <Route path="/*" element={<LandingPage flex={"1"} padding={"4%"} overrides={landingpageOverrides}/>} />
-          <Route path="/callhistory" element={<AllIncidents />} />
+          <Route path="/callhistory" element={<RecentCalls user={user} />} />
           <Route path="/feedback" element={<SurveyComponent />} />
           <Route path="/ending" element={<EndingPage flex={"1"} padding={"1%"} overrides={endingpageOverrides} />} />
         </Routes>
