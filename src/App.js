@@ -21,6 +21,7 @@ import { listAgents, listCustomers, listIncidents, listManagers } from './graphq
 import RecentCalls from "./components/calls/RecentCalls.js"
 import { ConnectClient, SearchContactsCommand } from "@aws-sdk/client-connect";
 import SurveyComponent from './components/survey/SurveyComponent';
+import SurveyDashboardComponent from './components/surveyData/SurveyDashboardComponent';
 
 const client = generateClient();
 Amplify.configure(config);
