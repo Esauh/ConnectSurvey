@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { ConnectClient, SearchContactsCommand } from "@aws-sdk/client-connect";
 
+console.log("Access Key ID:", process.env.REACT_APP_KEY);
+console.log("Secret Access Key:", process.env.REACT_APP_SECRET_KEY);
+
 const creds = {
-  accessKeyId: 'AKIA5H3OQSULEAJNR3KW',
-  secretAccessKey: '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',
+  accessKeyId:process.env.REACT_APP_KEY,
+  secretAccessKey:process.env.REACT_APP_SECRET_KEY,
 }
 const Connect = new ConnectClient({
   region: "us-east-1",

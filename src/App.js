@@ -2,7 +2,6 @@ import './App.css';
 import React, { useState, useEffect } from 'react';
 import { Amplify } from 'aws-amplify'
 import { generateClient } from 'aws-amplify/api'
-import { Auth } from 'aws-amplify';
 import { withAuthenticator } from '@aws-amplify/ui-react';
 import AWS, { AutoScaling } from 'aws-sdk';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
@@ -10,7 +9,6 @@ import {
   LandingPage,
   NavHeader,
   FooterLinks,
-  PhoneNumberAuthentication,
   UpdatedFeedback,
   EndingPage,
   AllIncidents,
@@ -19,7 +17,6 @@ import config from './amplifyconfiguration.json';
 import { fetchUserAttributes } from 'aws-amplify/auth';
 import { listAgents, listCustomers, listIncidents, listManagers } from './graphql/queries';
 import RecentCalls from "./components/calls/RecentCalls.js"
-import { ConnectClient, SearchContactsCommand } from "@aws-sdk/client-connect";
 import SurveyComponent from './components/survey/SurveyComponent';
 
 const client = generateClient();
