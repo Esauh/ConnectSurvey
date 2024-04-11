@@ -1,1 +1,1 @@
-export const dataUrl = "https://surveyjs.io/results/survey/e4bbc46d-969e-4700-b183-024cf4ec6fc7"
+export const dataUrl = "https://api.surveyjs.io/private/Surveys/getSurveyPublicResults/a8fbb673-2519-4e3b-85ef-08429c15d9ff"
