@@ -1,16 +1,21 @@
-import { listAgents, listCustomers, listIncidents, listManagers } from './graphql/queries';
+import { listAgents, listCustomers, listIncidents, listManagers } from '../../graphql/queries';
 import { ConnectClient, DescribeUserCommand, SearchContactsCommand, SearchUsersCommand } from '@aws-sdk/client-connect';
-import { createAgent, createCustomer, createIncident } from './graphql/mutations';
+import { createAgent, createCustomer, createIncident } from '../../graphql/mutations';
 import { v4 as uuidv4 } from 'uuid';
-import { ConnectClient, SearchContactsCommand } from "@aws-sdk/client-connect";
+import React, { useState, useEffect } from 'react';
+import { Amplify } from 'aws-amplify'
+import { fetchUserAttributes } from 'aws-amplify/auth';
+import { generateClient } from 'aws-amplify/api'
+import config from '../../amplifyconfiguration.json';
+
 
 const client = generateClient();
 
 Amplify.configure(config);
 
 const creds = {
-    accessKeyId: 'AKIA5H3OQSULEAJNR3KW',
-    secretAccessKey: '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',
+    accessKeyId:process.env.REACT_APP_KEY,
+    secretAccessKey:process.env.REACT_APP_SECRET_KEY,
 }
 const Connect = new ConnectClient({
     region: "us-east-1",
@@ -18,8 +23,6 @@ const Connect = new ConnectClient({
 });
 
 const ConnectCalls = ({ user }) => {
-
-
     const [recentCalls, setRecentCalls] = useState([]);
     useEffect(() => {
         async function fetchData() {
@@ -205,23 +208,74 @@ const ConnectCalls = ({ user }) => {
                     }
                 }
 
-
-
-
-
             } catch (error) {
                 console.error('Error fetching recent calls:', error);
             }
-
-
         }
-
-
-
-
-
         fetchData();
     }, []);
+    
+    const [agents, setAgents] = useState([]);
+    const [managers, setManagers] = useState([]);
+    const [customers, setCustomers] = useState([]);
+    const [incidents, setIncidents] = useState([]);
+  
+    useEffect(() => {
+      fetchAgents();
+    }, []);
+  
+    useEffect(() => {
+      fetchManagers();
+    }, []);
+  
+    useEffect(() => {
+      fetchCustomers();
+    }, []);
+  
+    useEffect(() => {
+      fetchIncidents();
+    }, []);
+  
+    const fetchIncidents = async () => {
+      try {
+        const incidentData = await client.graphql({ query: listIncidents });
+        const incidentList = incidentData.data.listIncidents.items;
+        setIncidents([incidentList]);
+      } catch (error) {
+        console.log('error on fetching incidents: ', error)
+      }
+    }
+  
+    const fetchAgents = async () => {
+      try {
+        const agentData = await client.graphql({ query: listAgents });
+        const agentList = agentData.data.listAgents.items;
+        setAgents([agentList]);
+      } catch (error) {
+        console.log('error on fetching agents: ', error)
+      }
+    }
+  
+    const fetchCustomers = async () => {
+      try {
+        const customerData = await client.graphql({ query: listCustomers });
+        const customerList = customerData.data.listCustomers.items;
+        setCustomers([customerList]);
+      } catch (error) {
+        console.log('error on fetching customers: ', error)
+      }
+    }
+  
+    const fetchManagers = async () => {
+      try {
+        const managerData = await client.graphql({ query: listManagers });
+        const managerList = managerData.data.listManagers.items;
+        setManagers([managerList]);
+      } catch (error) {
+        console.log('error on fetching managers: ', error)
+      }
+    }
+    // return('')
 }
 
 export default ConnectCalls;

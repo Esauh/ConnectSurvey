@@ -67,9 +67,7 @@ const RecentCalls = ({ user }) => {
           <p><strong>Date:</strong> {contact.AgentInfo.Id}</p>
           <p><strong>Contact ID:</strong> {contact.Id}</p>
           <p><strong>Channel:</strong> {contact.Channel}</p>
-          {/* Render other AgentInfo properties here */}
           <p><strong>Agent ID:</strong> {contact.AgentInfo.Id ? contact.AgentInfo.AgentId : 'N/A'}</p>
-          {/* Add more properties as needed */}
         </div>
       ))}
     </div>

@@ -32,7 +32,6 @@ export declare type IncidentCardOverridesProps = {
 } & EscapeHatchProps;
 export declare type IncidentCardProps = React.PropsWithChildren<Partial<FlexProps> & {
     incident?: any;
-    customer?: any;
 } & {
     overrides?: IncidentCardOverridesProps | undefined | null;
 }>;

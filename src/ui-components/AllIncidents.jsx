@@ -99,11 +99,11 @@ export default function AllIncidents(props) {
           }
           return (
             <IncidentCard
-              incident={item}
               agent={item}
               margin="5px 5px 5px 5px"
               height="auto"
               width="auto"
+              incident={item}
               key={item.id}
               {...(overrideItems && overrideItems({ item, index }))}
             ></IncidentCard>

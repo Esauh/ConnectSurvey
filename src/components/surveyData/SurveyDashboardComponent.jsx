@@ -1,7 +1,7 @@
 import React from "react";
 import { Model } from "survey-core";
 import { VisualizationPanel } from "survey-analytics";
-import "survey-analytics/survey.analytics.css";
+// import "survey-analytics/survey.analytics.css";
 import "./survey.css";
 import { json } from "./json";
 import { dataUrl } from "./dataurl";
