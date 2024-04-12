@@ -10,14 +10,7 @@ import { getOverrideProps, useNavigateAction } from "./utils";
 import { Badge, Button, Flex, Text } from "@aws-amplify/ui-react";
 export default function IncidentCard(props) {
   const { incident, overrides, ...rest } = props;
-  const buttonFourZeroEightZeroFourSevenSixOnClick = useNavigateAction({
-    type: "url",
-    url: "/feedback",
-  });
-  const buttonFourZeroEightZeroFourSevenSevenOnClick = useNavigateAction({
-    type: "url",
-    url: "/feedback",
-  });
+  const buttonOnClick = useNavigateAction({ type: "url", url: "/feedback" });
   return (
     <Flex
       gap="16px"
@@ -174,29 +167,15 @@ export default function IncidentCard(props) {
           width="unset"
           height="unset"
           shrink="0"
-          backgroundColor="rgba(191,64,191,1)"
-          size="small"
-          isDisabled={false}
-          variation="primary"
-          children="Leave Voice Feedback"
-          onClick={() => {
-            buttonFourZeroEightZeroFourSevenSixOnClick();
-          }}
-          {...getOverrideProps(overrides, "Button4080476")}
-        ></Button>
-        <Button
-          width="unset"
-          height="unset"
-          shrink="0"
           backgroundColor="rgba(67,168,84,1)"
           size="small"
           isDisabled={false}
           variation="primary"
           children="Leave Chat Feedback "
           onClick={() => {
-            buttonFourZeroEightZeroFourSevenSevenOnClick();
+            buttonOnClick();
           }}
-          {...getOverrideProps(overrides, "Button4080477")}
+          {...getOverrideProps(overrides, "Button")}
         ></Button>
       </Flex>
     </Flex>

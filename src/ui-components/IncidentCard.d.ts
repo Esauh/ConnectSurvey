@@ -27,8 +27,7 @@ export declare type IncidentCardOverridesProps = {
     "Incident Date"?: PrimitiveOverrideProps<TextProps>;
     "Incident Time"?: PrimitiveOverrideProps<TextProps>;
     Tags?: PrimitiveOverrideProps<FlexProps>;
-    Button4080476?: PrimitiveOverrideProps<ButtonProps>;
-    Button4080477?: PrimitiveOverrideProps<ButtonProps>;
+    Button?: PrimitiveOverrideProps<ButtonProps>;
 } & EscapeHatchProps;
 export declare type IncidentCardProps = React.PropsWithChildren<Partial<FlexProps> & {
     incident?: any;

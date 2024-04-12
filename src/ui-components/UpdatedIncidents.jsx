@@ -14,7 +14,7 @@ import { generateClient } from "aws-amplify/api";
 const nextToken = {};
 const apiCache = {};
 const client = generateClient();
-export default function AllIncidents(props) {
+export default function UpdatedIncidents(props) {
   const { items: itemsProp, overrideItems, overrides, ...rest } = props;
   const [pageIndex, setPageIndex] = React.useState(1);
   const [hasMorePages, setHasMorePages] = React.useState(true);
@@ -23,7 +23,7 @@ export default function AllIncidents(props) {
   const [instanceKey, setInstanceKey] = React.useState("newGuid");
   const [loading, setLoading] = React.useState(true);
   const [maxViewed, setMaxViewed] = React.useState(1);
-  const pageSize = 6;
+  const pageSize = 4;
   const isPaginated = true;
   React.useEffect(() => {
     nextToken[instanceKey] = "";
@@ -83,13 +83,14 @@ export default function AllIncidents(props) {
         type="grid"
         isSearchable="true"
         searchPlaceholder="Search..."
+        templateColumns="1fr 1fr"
         autoFlow="row"
         alignItems="stretch"
         justifyContent="stretch"
         itemsPerPage={pageSize}
         isPaginated={!isApiPagination && isPaginated}
         items={itemsProp || (loading ? new Array(pageSize).fill({}) : items)}
-        {...getOverrideProps(overrides, "AllIncidents")}
+        {...getOverrideProps(overrides, "UpdatedIncidents")}
         {...rest}
       >
         {(item, index) => {
@@ -98,11 +99,10 @@ export default function AllIncidents(props) {
           }
           return (
             <IncidentCard
-              agent={item}
-              margin="5px 5px 5px 5px"
+              incident={item}
               height="auto"
               width="auto"
-              incident={item}
+              margin="5px 5px 5px 5px"
               key={item.id}
               {...(overrideItems && overrideItems({ item, index }))}
             ></IncidentCard>

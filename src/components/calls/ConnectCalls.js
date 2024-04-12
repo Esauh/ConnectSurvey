@@ -7,8 +7,7 @@ import { Amplify } from 'aws-amplify'
 import { fetchUserAttributes } from 'aws-amplify/auth';
 import { generateClient } from 'aws-amplify/api'
 import config from '../../amplifyconfiguration.json';
-
-
+import {AllIncidents, UpdatedIncidents} from '../../ui-components';
 const client = generateClient();
 
 Amplify.configure(config);
@@ -240,7 +239,8 @@ const ConnectCalls = ({ user }) => {
       try {
         const incidentData = await client.graphql({ query: listIncidents });
         const incidentList = incidentData.data.listIncidents.items;
-        setIncidents([incidentList]);
+        setIncidents(incidentList);
+        console.log(incidentList)
       } catch (error) {
         console.log('error on fetching incidents: ', error)
       }
@@ -275,7 +275,38 @@ const ConnectCalls = ({ user }) => {
         console.log('error on fetching managers: ', error)
       }
     }
-    // return('')
+
+
+    // const UpdatedIncidents = () => {
+    //   return (
+    //     <div>
+    //       {incidents.map(incident => (
+    //         <IncidentCard key={incident.id} incident={incident} />
+    //       ))}
+    //     </div>
+    //   );
+    // };
+
+    // return (
+    //   <div>
+    //     <h1>Company Call History: ConnectTest</h1>
+    //     <UpdatedIncidents />
+    //   </div>
+    // );
+
+
+    console.log(fetchIncidents)
+    const overridesIncident = {
+      "UpdatedIncidents": {
+         items: incidents
+      },
+    }
+    return(<div>
+      <h1>Company Call History: ConnectTest</h1>
+    <UpdatedIncidents overrides={overridesIncident}/>
+    </div>
+    )
+    
 }
 
 export default ConnectCalls;

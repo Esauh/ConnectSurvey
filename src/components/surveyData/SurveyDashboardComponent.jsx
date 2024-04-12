@@ -1,9 +1,9 @@
 import React from "react";
 import { Model } from "survey-core";
 import { VisualizationPanel } from "survey-analytics";
-// import "survey-analytics/survey.analytics.css";
-import "./survey.css";
-import { json } from "./json";
+import "survey-analytics/survey.analytics.css";
+import "./index.css";
+import { json } from "./json.js";
 import { dataUrl } from "./dataurl";
 
 class SurveyDashboardComponent extends React.Component {
@@ -15,8 +15,7 @@ class SurveyDashboardComponent extends React.Component {
                 survey.getAllQuestions(),
                 dataFromServer
             );
-            
-            
+        
             document.getElementById("loadingIndicator").style.display = "none";
             vizPanel.render("surveyDashboardContainer");
         });

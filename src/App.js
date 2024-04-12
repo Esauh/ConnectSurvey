@@ -18,9 +18,10 @@ import { fetchUserAttributes } from 'aws-amplify/auth';
 import { listAgents, listCustomers, listIncidents, listManagers } from './graphql/queries';
 import RecentCalls from "./components/calls/RecentCalls.js"
 import SurveyComponent from './components/survey/SurveyComponent';
-import SurveyDashboardComponent from './components/surveyData/SurveyDashboardComponent';
+import SurveyDashboardComponent from './components/DataVisualization/index.js';
 import { ConnectClient, SearchContactsCommand } from "@aws-sdk/client-connect";
 import ConnectCalls from './components/calls/ConnectCalls.js';
+import InitialSurvey from './components/survey/initialSurvey.js';
 
 const client = generateClient();
 Amplify.configure(config);
@@ -122,7 +123,14 @@ function App({ signOut, user }) {
 
     "Landing Page": {
       children: "Home"
-    }
+    },
+
+    "Contact Us": {
+      onClick: () => {
+        const mailtoLink = "mailto:esau.hutcherson@bison.howard.edu?subject=AWS%20Connect%20Survey%20";
+        window.open(mailtoLink, "_blank");
+      }
+    },
   }
   const usr = user.username;
   const displayname = user.username[0].toUpperCase() + usr.slice(1)
@@ -156,18 +164,34 @@ function App({ signOut, user }) {
     }
   }
 
+  const footlinksoverrides = {
+    "Contact": {
+      onClick: () => {
+        const mailtoLink = "mailto:esau.hutcherson@bison.howard.edu?subject=AWS%20Connect%20Survey%20";
+        window.open(mailtoLink, "_blank");
+      }
+    },
+    "Github": {
+      onClick: () => {
+        const mailtoLink = "https://github.com/Esauh/ConnectSurvey/tree/main";
+        window.open(mailtoLink, "_blank");
+      }
+    }
+  }
+
   return (
     <Router>
       <div className="App">
         <NavHeader overrides={navBarOverrides} />
         <Routes>
           <Route path="/*" element={<LandingPage flex={"1"} padding={"4%"} overrides={landingpageOverrides} />} />
-          <Route path="/callhistory" element={<AllIncidents />} />
-          <Route path="/feedback" element={<SurveyComponent />} />
+          <Route path="/callhistory" element={<ConnectCalls user={user} />} />
+          <Route path="/feedback" element={<InitialSurvey />} />
           <Route path="/feedback-data" element={<SurveyDashboardComponent />} />
           <Route path="/ending" element={<EndingPage flex={"1"} padding={"1%"} overrides={endingpageOverrides} />} />
+          <Route path="/visualization" element={<SurveyDashboardComponent/> } /> 
         </Routes>
-        <FooterLinks width={"100%"} padding={"1.5%"} flex-shrink={"0"} />
+        <FooterLinks width={"100%"} padding={"1.5%"} flex-shrink={"0"} overrides={footlinksoverrides} />
       </div>
     </Router>
   );
